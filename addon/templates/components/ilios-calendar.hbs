@@ -4,7 +4,7 @@
       calendarEvents=calendarEventsPromise.content
       date=selectedDate
     }}
-  {{else}}
-    Loading events...
   {{/if}}
+{{else}}
+  {{fa-icon 'spinner' spin=true}}
 {{/if}}

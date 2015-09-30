@@ -1,0 +1,21 @@
+.ilios-calendar .clickable {
+  cursor: pointer;
+}
+
+.ilios-calendar .calendar-controls {
+color: $ilios-blue;
+margin-bottom: 1em;
+
+.ilios-calendar .calendar-options-control {
+  float: left;
+  margin: 1em 1em 1em 0;
+}
+
+.ilios-calendar .calendar-view-picker {
+  clear: both;
+  float: right;
+}
+
+.ilios-calendar .calendar-time-picker {
+  float: left;
+}
