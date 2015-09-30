@@ -9,4 +9,8 @@ export default Component.extend({
   selectedView: null,
   selectedDate: null,
   calendarEventsPromise: false,
+  day: 'Day',
+  week: 'Week',
+  month: 'Month',
+  today: 'Today',
 });

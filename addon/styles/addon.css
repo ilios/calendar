@@ -1,21 +1,25 @@
 .ilios-calendar .clickable {
+  color: #009ccc;
   cursor: pointer;
 }
 
-.ilios-calendar .calendar-controls {
-color: $ilios-blue;
-margin-bottom: 1em;
-
-.ilios-calendar .calendar-options-control {
-  float: left;
-  margin: 1em 1em 1em 0;
+.ilios-calendar .ilios-calendar-calendar {
+  clear: both;
 }
 
 .ilios-calendar .calendar-view-picker {
-  clear: both;
   float: right;
 }
 
 .ilios-calendar .calendar-time-picker {
   float: left;
+}
+
+.ilios-calendar ul.inline, ul.inline li {
+  display: inline;
+  margin-bottom: 1em;
+}
+
+ul.inline li {
+  margin-right: 2em;
 }
