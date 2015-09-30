@@ -1,0 +1,10 @@
+{{#if calendarEventsPromise}}
+  {{#if calendarEventsPromise.isFulfilled}}
+    {{component (concat "ilios-calendar-" selectedView) 
+      calendarEvents=calendarEventsPromise.content
+      date=selectedDate
+    }}
+  {{else}}
+    Loading events...
+  {{/if}}
+{{/if}}
