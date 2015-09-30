@@ -10,7 +10,7 @@ export default CalendarEvent.extend({
   layout,
   event: null,
   timeFormat: 'h:mma',
-  classNames: ['event', 'event-pos', 'ilios-calendar-event', 'event.eventClass', 'day'],
+  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':day'],
   tooltipContent: computed('event', function(){
     let str = this.get('event.location') + '<br />' +
       moment(this.get('event.startDate')).format(this.get('timeFormat')) + ' - ' +
