@@ -17,4 +17,9 @@ export default Ember.Component.extend({
       this.$(".el-calendar .week").scrollTop(500);
     });
   },
+  actions: {
+    selectEvent(event){
+      this.sendAction('selectEvent', event);
+    }
+  }
 });

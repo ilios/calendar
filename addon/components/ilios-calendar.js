@@ -30,5 +30,8 @@ export default Component.extend({
       let newDate = moment().toDate();
       this.sendAction('changeDate', newDate);
     },
+    selectEvent(event){
+      this.sendAction('selectEvent', event);
+    }
   }
 });

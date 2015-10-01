@@ -18,7 +18,7 @@
         {{#each hours as |hour|}}
           {{#each hour.events as |event|}}
             {{#link-to 'events' event.slug}}
-              {{ilios-calendar-event event=event}}
+              {{ilios-calendar-event event=event action='selectEvent'}}
             {{/link-to}}
           {{/each}}
         {{/each}}

@@ -1,3 +1,4 @@
+/* global alert */
 import Ember from 'ember';
 import DS from 'ember-data';
 import moment from 'moment';
@@ -48,6 +49,9 @@ export default Controller.extend({
     },
     changeView(newView){
       this.set('selectedView', newView);
+    },
+    selectEvent(event){
+      alert('Event "' + event.name + '" selected.  App needs to catch the "selectEvent" action when it is fired.');
     }
   }
 });

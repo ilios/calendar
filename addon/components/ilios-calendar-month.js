@@ -6,4 +6,9 @@ export default Ember.Component.extend({
   layout: layout,
   date: null,
   calendarEvents: [],
+  actions: {
+    selectEvent(event){
+      this.sendAction('selectEvent', event);
+    }
+  }
 });
