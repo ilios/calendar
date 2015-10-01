@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar';
+import moment from 'moment';
 
 const {Component} = Ember;
 
@@ -14,11 +15,20 @@ export default Component.extend({
   month: 'Month',
   today: 'Today',
   actions: {
-    changeDate(newDate){
-      this.sendAction('changeDate', newDate);
-    },
     changeView(newView){
       this.sendAction('changeView', newView);
+    },
+    goForward(){
+      let newDate = moment(this.get('selectedDate')).add(1, this.get('selectedView')).toDate();
+      this.sendAction('changeDate', newDate);
+    },
+    goBack(){
+      let newDate = moment(this.get('selectedDate')).subtract(1, this.get('selectedView')).toDate();
+      this.sendAction('changeDate', newDate);
+    },
+    gotoToday(){
+      let newDate = moment().toDate();
+      this.sendAction('changeDate', newDate);
     },
   }
 });

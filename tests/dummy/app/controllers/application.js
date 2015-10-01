@@ -7,7 +7,7 @@ const { PromiseArray } = DS;
 
 export default Controller.extend({
   selectedDate: new Date(),
-  selectedView: 'month',
+  selectedView: 'week',
   fromTimeStamp: computed('selectedDate', 'selectedView', function(){
     return moment(this.get('selectedDate')).startOf(this.get('selectedView')).unix();
   }),
