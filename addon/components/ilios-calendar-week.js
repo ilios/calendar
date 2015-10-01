@@ -9,8 +9,8 @@ export default Ember.Component.extend({
   layout: layout,
   date: null,
   calendarEvents: [],
-  weekOf: computed('selectedDate', function(){
-    return moment(this.get('selectedDate')).startOf('week').format('MMMM Do YYYY');
+  weekOf: computed('date', function(){
+    return moment(this.get('date')).startOf('week').format('MMMM Do YYYY');
   }),
   didInsertElement(){
     run.next(() => {
