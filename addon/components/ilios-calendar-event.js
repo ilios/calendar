@@ -12,6 +12,9 @@ export default CalendarEvent.extend({
   timeFormat: 'h:mma',
   classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':day'],
   tooltipContent: computed('event', function(){
+    if (this.get('event') == null) {
+      return '';
+    }
     let str = this.get('event.location') + '<br />' +
       moment(this.get('event.startDate')).format(this.get('timeFormat')) + ' - ' +
       moment(this.get('event.endDate')).format(this.get('timeFormat')) + '<br />' +
@@ -21,6 +24,10 @@ export default CalendarEvent.extend({
   }),
   
   style: computed(function() {
+    if (this.get('event') == null) {
+      return new SafeString('');
+    }
+    
     let escape = Handlebars.Utils.escapeExpression;
 
     return new SafeString(

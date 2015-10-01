@@ -6,21 +6,13 @@ moduleForComponent('ilios-calendar-week', 'Integration | Component | ilios calen
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+    assert.expect(2);
+    let today = new Date('2015-09-30');
+    this.set('today', today);
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{ilios-calendar-week}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#ilios-calendar-week}}
-      template block text
-    {{/ilios-calendar-week}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+    this.render(hbs`{{ilios-calendar-week date=today}}`);
+    assert.equal(this.$().text().trim().search(/^Week of September/), 0);
+    assert.equal(this.$('.event').length, 0);
 });

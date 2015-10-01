@@ -7,20 +7,14 @@ moduleForComponent('ilios-calendar-day', 'Integration | Component | ilios calend
 
 test('it renders', function(assert) {
   assert.expect(2);
-
+  let today = new Date('2015-09-30');
+  this.set('today', today);
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{ilios-calendar-day}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#ilios-calendar-day}}
-      template block text
-    {{/ilios-calendar-day}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{ilios-calendar-day date=today}}`);
+  //Date input is Wednesday, Septrmber 30th.  Should be the first string
+  assert.equal(this.$().text().trim().search(/^Wednesday/), 0);
+  assert.equal(this.$('.event').length, 0);
+  
 });

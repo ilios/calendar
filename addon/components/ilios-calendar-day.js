@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar-day';
 
-const {computed, run} = Ember;
+const {run} = Ember;
 
 export default Ember.Component.extend({
   classNames: ['ilios-calendar-month'],
