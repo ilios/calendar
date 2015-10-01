@@ -1,6 +1,6 @@
 # Ilios-calendar
 
-This README outlines the details of collaborating on this Ember addon.
+Provides the ilios calendar addon to other ember applications including our frontend and embeded applications.
 
 ## Installation
 
