@@ -7,10 +7,8 @@ moduleForComponent('ilios-calendar-week', 'Integration | Component | ilios calen
 
 test('it renders', function(assert) {
     assert.expect(2);
-    let today = new Date('2015-09-30');
-    this.set('today', today);
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
+    let date = new Date('2015-09-30T12:00:00');
+    this.set('date', date);
 
     this.render(hbs`{{ilios-calendar-week date=today}}`);
     assert.equal(this.$().text().trim().search(/^Week of September/), 0);

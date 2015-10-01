@@ -7,12 +7,10 @@ moduleForComponent('ilios-calendar-day', 'Integration | Component | ilios calend
 
 test('it renders', function(assert) {
   assert.expect(2);
-  let today = new Date('2015-09-30 12:00:00');
-  this.set('today', today);
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  let date = new Date('2015-09-30T12:00:00');
+  this.set('date', date);
 
-  this.render(hbs`{{ilios-calendar-day date=today}}`);
+  this.render(hbs`{{ilios-calendar-day date=date}}`);
   //Date input is Wednesday, Septrmber 30th.  Should be the first string
   assert.equal(this.$().text().trim().search(/^Wednesday/), 0);
   assert.equal(this.$('.event').length, 0);
