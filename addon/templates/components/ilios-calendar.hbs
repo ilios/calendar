@@ -1,24 +1,18 @@
-{{#if calendarEventsPromise}}
-  {{#if calendarEventsPromise.isFulfilled}}
-    <ul class='inline calendar-view-picker'>
-      <li class='clickable' {{action 'changeView' 'day'}}>{{day}}</li>
-      <li class='clickable' {{action 'changeView' 'week'}}>{{week}}</li>
-      <li class='clickable' {{action 'changeView' 'month'}}>{{month}}</li>
-    </ul>
+<ul class='inline calendar-view-picker'>
+  <li class='clickable' {{action 'changeView' 'day'}}>{{day}}</li>
+  <li class='clickable' {{action 'changeView' 'week'}}>{{week}}</li>
+  <li class='clickable' {{action 'changeView' 'month'}}>{{month}}</li>
+</ul>
 
-    <ul class='inline calendar-time-picker'>
-      <li class='clickable' {{action 'goBack'}}>{{fa-icon 'angle-left'}}</li>
-      <li class='clickable' {{action 'gotoToday'}}>{{today}}</li>
-      <li class='clickable' {{action 'goForward'}}>{{fa-icon 'angle-right'}}</li>
-    </ul>
-    <div class='ilios-calendar-calendar'>
-      {{component (concat "ilios-calendar-" selectedView) 
-        calendarEvents=calendarEventsPromise.content
-        date=selectedDate
-        selectEvent='selectEvent'
-      }}
-    </div>
-  {{/if}}
-{{else}}
-  {{fa-icon 'spinner' spin=true}}
-{{/if}}
+<ul class='inline calendar-time-picker'>
+  <li class='clickable' {{action 'goBack'}}>{{fa-icon 'angle-left'}}</li>
+  <li class='clickable' {{action 'gotoToday'}}>{{today}}</li>
+  <li class='clickable' {{action 'goForward'}}>{{fa-icon 'angle-right'}}</li>
+</ul>
+<div class='ilios-calendar-calendar'>
+  {{component (concat "ilios-calendar-" selectedView) 
+    calendarEvents=calendarEventsPromise.content
+    date=selectedDate
+    selectEvent='selectEvent'
+  }}
+</div>

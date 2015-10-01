@@ -2,5 +2,9 @@
 'use strict';
 
 module.exports = {
-  name: 'ilios-calendar'
+  name: 'ilios-calendar',
+
+  isDevelopingAddon: function() {
+    return true;
+  }
 };

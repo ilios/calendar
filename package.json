@@ -1,7 +1,7 @@
 {
   "name": "ilios-calendar",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Provides the ilios calendar to the ilios frontend and embeded app.",
   "directories": {
     "doc": "doc",
     "test": "tests"
