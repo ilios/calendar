@@ -448,6 +448,19 @@
 
 .ilios-calendar .ilios-calendar-calendar {
   clear: both;
+  position: relative;
+}
+
+.ilios-calendar .ilios-calendar-calendar h1 {
+  left: 4em;
+  opacity: 75;
+  position: absolute;
+  top: 2em;
+  transition: all 0.5s ease-in-out;
+}
+
+.ilios-calendar .ilios-calendar-calendar h1.loaded {
+  opacity: 0;
 }
 
 .ilios-calendar .calendar-view-picker {
@@ -471,7 +484,6 @@
 /*
 And issue with ember-cli-saas prevents easily using sass in and
 addon so I compiled it seperatly and included it above, but this is the raw file info
-//default properties
 $white: #fff;
 $black: #000;
 $grey: #eee;
@@ -963,39 +975,51 @@ border-top-left-radius: $radii;
 }
 }
 
-.ilios-calendar-event {
-@include border-top-radius($base-border-radius);
-@include border-bottom-radius($base-border-radius);
-background-color: $background-grey;
-border: 1px solid $grey;
-}
+  .ilios-calendar-event {
+  @include border-top-radius($base-border-radius);
+  @include border-bottom-radius($base-border-radius);
+  background-color: $background-grey;
+  border: 1px solid $grey;
+  }
 
-.clickable {
-color: $ilios-blue;
-cursor: pointer;
-}
+  .clickable {
+  color: $ilios-blue;
+  cursor: pointer;
+  }
 
-.ilios-calendar-calendar {
-clear: both;
-}
+  .ilios-calendar-calendar {
+  clear: both;
+  position: relative;
+  
+    h1 {
+      left: 4em;
+      opacity: 75;
+      position: absolute;
+      top: 2em;
+      transition: all .5s ease-in-out;
 
-.calendar-view-picker {
-float: right;
-}
+      &.loaded {
+        opacity: 0;
+      }
+    }
+  }
 
-.calendar-time-picker {
-float: left;
-}
+  .calendar-view-picker {
+  float: right;
+  }
 
-ul.inline, ul.inline li {
-display: inline;
-margin-bottom: 1em;
-}
+  .calendar-time-picker {
+  float: left;
+  }
 
-ul.inline li {
-margin-right: 2em;
-}
+  ul.inline, ul.inline li {
+  display: inline;
+  margin-bottom: 1em;
+  }
 
+  ul.inline li {
+  margin-right: 2em;
+  }
 }
 
 

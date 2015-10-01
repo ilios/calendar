@@ -10,6 +10,7 @@
   <li class='clickable' {{action 'goForward'}}>{{fa-icon 'angle-right'}}</li>
 </ul>
 <div class='ilios-calendar-calendar'>
+  <h1 class="{{if calendarEventsPromise.isFulfilled 'loaded'}}">{{fa-icon 'spinner' spin=true}} {{loadingMessage}}</h1>
   {{component (concat "ilios-calendar-" selectedView) 
     calendarEvents=calendarEventsPromise.content
     date=selectedDate
