@@ -13,4 +13,12 @@ export default Component.extend({
   week: 'Week',
   month: 'Month',
   today: 'Today',
+  actions: {
+    changeDate(newDate){
+      this.sendAction('changeDate', newDate);
+    },
+    changeView(newView){
+      this.sendAction('changeView', newView);
+    },
+  }
 });

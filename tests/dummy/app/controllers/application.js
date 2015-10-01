@@ -7,7 +7,7 @@ const { PromiseArray } = DS;
 
 export default Controller.extend({
   selectedDate: new Date(),
-  selectedView: 'week',
+  selectedView: 'month',
   fromTimeStamp: computed('selectedDate', 'selectedView', function(){
     return moment(this.get('selectedDate')).startOf(this.get('selectedView')).unix();
   }),
@@ -41,5 +41,13 @@ export default Controller.extend({
       isPublished: true,
       isScheduled: false
     };
+  },
+  actions: {
+    changeDate(newDate){
+      this.set('selectedDate', newDate);
+    },
+    changeView(newView){
+      this.set('selectedView', newView);
+    }
   }
 });

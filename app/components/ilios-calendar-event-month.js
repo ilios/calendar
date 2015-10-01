@@ -1,0 +1,1 @@
+export { default } from 'ilios-calendar/components/ilios-calendar-event-month';
