@@ -9,6 +9,10 @@ export default Ember.Component.extend({
   actions: {
     selectEvent(event){
       this.sendAction('selectEvent', event);
+    },
+    changeToDayView(date){
+      this.sendAction('changeDate', date);
+      this.sendAction('changeView', 'day');
     }
   }
 });

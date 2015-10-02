@@ -19,6 +19,9 @@ export default Component.extend({
     changeView(newView){
       this.sendAction('changeView', newView);
     },
+    changeDate(newDate){
+      this.sendAction('changeDate', newDate);
+    },
     goForward(){
       let newDate = moment(this.get('selectedDate')).add(1, this.get('selectedView')).toDate();
       this.sendAction('changeDate', newDate);
