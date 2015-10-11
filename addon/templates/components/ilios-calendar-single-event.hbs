@@ -1,0 +1,27 @@
+<h2>{{title}}</h2>
+<fieldset>
+  <caption>{{coursePhrase}}</caption>
+  <div class='ilios-calendar-single-event-offered-at'>{{offeredAtPhrase}}</div>
+  <div class='ilios-calendar-single-event-instructors'>{{taughtByPhrase}} {{listOfInstructors}}</div>
+  <div class='ilios-calendar-single-event-offered-at'>{{offeringIsAPhrase}}</div>
+  <div class='ilios-calendar-single-event-objective-list'>
+    <h4>{{courseObjectivesPhrase}}</h4>
+    {{ilios-calendar-single-event-objective-list objectives=courseObjectives}}
+  </div>
+  <div class='ilios-calendar-single-event-learningmaterial-list'>
+    <h4>{{courseLearningMaterialsPhrase}}</h4>
+    {{ilios-calendar-single-event-learningmaterial-list learningMaterials=courseLearningMaterials}}
+  </div>
+</fieldset>
+
+<fieldset>
+  <caption>{{sessionPhrase}}</caption>
+  <div class='ilios-calendar-single-event-objective-list'>
+    <h4>{{sessionObjectivesPhrase}}</h4>
+    {{ilios-calendar-single-event-objective-list objectives=sessionObjectives}}
+  </div>
+  <div class='ilios-calendar-single-event-learningmaterial-list'>
+    <h4>{{sessionLearningMaterialsPhrase}}</h4>
+    {{ilios-calendar-single-event-learningmaterial-list learningMaterials=sessionLearningMaterials}}
+  </div>
+</fieldset>

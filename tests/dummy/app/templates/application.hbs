@@ -1,9 +1,23 @@
 <h1>Demo of ilios-calendar</h1>
-{{ilios-calendar 
-  calendarEventsPromise=calendarEventsPromise
-  selectedView=selectedView
-  selectedDate=selectedDate
-  changeDate='changeDate'
-  changeView='changeView'
-  selectEvent='selectEvent'
-}}
+{{#unless fakeSingleEvent}}
+  {{ilios-calendar 
+    calendarEventsPromise=calendarEventsPromise
+    selectedView=selectedView
+    selectedDate=selectedDate
+    changeDate='changeDate'
+    changeView='changeView'
+    selectEvent='selectEvent'
+  }}
+{{else}}
+  {{ilios-calendar-single-event
+    title=fakeSingleEvent.title
+    sessionType=fakeSingleEvent.title
+    startDate=fakeSingleEvent.startDate
+    endDate=fakeSingleEvent.endDate
+    instructors=fakeSingleEvent.instructors
+    courseObjectives=fakeSingleEvent.courseObjectives
+    sessionObjectives=fakeSingleEvent.sessionObjectives
+    courseLearningMaterials=fakeSingleEvent.courseLearningMaterials
+    sessionLearningMaterials=fakeSingleEvent.sessionLearningMaterials
+  }}
+{{/unless}}

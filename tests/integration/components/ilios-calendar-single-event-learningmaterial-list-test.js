@@ -1,0 +1,23 @@
+import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
+
+moduleForComponent('ilios-calendar-single-event-learningmaterial-list', 'Integration | Component | ilios calendar single event learningmaterial list', {
+  integration: true
+});
+
+test('it renders', function(assert) {
+  assert.expect(4);
+
+  this.set('learningMaterials', [
+    {title: 'first one', mimetype: 'pdf', url: 'http://firstlink'},
+    {title: 'second one', mimetype: 'wav', url: 'http://secondlink'},
+  ]);
+  this.render(hbs`{{ilios-calendar-single-event-learningmaterial-list learningMaterials=learningMaterials}}`);
+  
+  assert.equal(this.$('li:eq(0)').text().trim().search(/^first one/), 0);
+  assert.equal(this.$('li:eq(0) a').attr('href').trim(), 'http://firstlink');
+  
+  assert.equal(this.$('li:eq(1)').text().trim().search(/^second one/), 0);
+  assert.equal(this.$('li:eq(1) a').attr('href').trim(), 'http://secondlink');
+  
+});

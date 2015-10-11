@@ -10,7 +10,7 @@ test('it renders', function(assert) {
     let date = new Date('2015-09-30T12:00:00');
     this.set('date', date);
 
-    this.render(hbs`{{ilios-calendar-week date=today}}`);
+    this.render(hbs`{{ilios-calendar-week date=date}}`);
     assert.equal(this.$().text().trim().search(/^Week of September/), 0);
     assert.equal(this.$('.event').length, 0);
 });
