@@ -8,7 +8,9 @@
           {{fa-icon 'star' title=requiredPhrase}}
         {{/if}}
         {{#if lm.url}}<a href='{{lm.url}}'>{{lm.title}}</a>{{else}}{{lm.title}}{{/if}}
-        {{#if lm.filesize}} ({{filesize lm.filesize}}){{/if}}
+        <span class='ilios-calendar-single-event-learningmaterial-filesize'>
+          {{#if lm.filesize}} ({{filesize lm.filesize}}){{/if}}
+        </span>
       </div>
       {{#if lm.citation}}
         <div class='ilios-calendar-single-event-learningmaterial-item-citation'>

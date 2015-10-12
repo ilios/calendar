@@ -7,7 +7,7 @@ export function filesize(params/*, hash*/) {
   }
   let i,
       rhett,
-      units = ['B', 'KB', 'MB', 'GB', 'TB'];
+      units = ['b', 'kb', 'mb', 'gb', 'tb'];
   for (i = 0; i < units.length; i++) {
     if (value < 1024) {
       rhett = Math.floor(value) + units[i];

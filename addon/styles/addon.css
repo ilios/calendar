@@ -497,6 +497,15 @@
   font-weight: bold;
 }
 
+.ilios-calendar-single-event .ilios-calendar-single-event-summary h1 {
+  font-weight: normal;
+}
+
+.ilios-calendar-single-event .ilios-calendar-single-event-summary h1 em {
+  font-style: normal;
+  font-weight: bold;
+}
+
 .ilios-calendar-single-event .ilios-calendar-single-event-offered-at {
   font-weight: bold;
 }
@@ -505,11 +514,17 @@
   font-style: italic;
 }
 
+.ilios-calendar-single-event .ilios-calendar-single-event-learningmaterial-filesize {
+  font-size: .8em;
+  font-style: italic;
+}
+
 .ilios-calendar-single-event ul.tree li {
   font-weight: bold;
 }
 
 .ilios-calendar-single-event ul.tree ul {
+  margin-bottom: 1em;
   margin-left: 1em;
 }
 

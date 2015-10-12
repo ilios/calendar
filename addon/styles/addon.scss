@@ -563,11 +563,27 @@ $base-accent-color: $ilios-accent-color;
     }
   }
   
+  .ilios-calendar-single-event-summary {
+    h1 {
+      font-weight: normal;
+      
+      em {
+        font-style: normal;
+        font-weight: bold;
+      }
+    }
+  }
+  
   .ilios-calendar-single-event-offered-at {
     font-weight: bold;
   }
   
   .ilios-calendar-single-event-instructors {
+    font-style: italic;
+  }
+  
+  .ilios-calendar-single-event-learningmaterial-filesize {
+    font-size: .8em;
     font-style: italic;
   }
   
@@ -577,8 +593,9 @@ $base-accent-color: $ilios-accent-color;
     }
 
     ul {
+      margin-bottom: 1em;
       margin-left: 1em;
-
+      
       li {
         font-weight: normal;
         list-style-type: disc;
