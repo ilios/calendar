@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   classNames: ['ilios-calendar', 'ilios-calendar-single-event'],
   
   title: null,
+  description: null,
   offeredAtPhrase: null,
   taughtByPhrase: null,
   offeringIsAPhrase: null,
@@ -22,4 +23,5 @@ export default Ember.Component.extend({
   sessionLearningMaterials: null,
   sessionObjectives: null,
   
+  requiredPhrase: 'Required',
 });

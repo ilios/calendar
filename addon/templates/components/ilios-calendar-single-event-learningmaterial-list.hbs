@@ -1,5 +1,25 @@
 <ul class='static-list fa-ul'>
   {{#each proxiedLearningMaterials as |lm|}}
-    <li>{{fa-icon lm.icon listItem=true}} <a href='{{lm.url}}'>{{lm.title}}</a></li>
+    <li class='ilios-calendar-single-event-learningmaterial-item'>
+      {{fa-icon lm.icon listItem=true}}
+      
+      <div class='ilios-calendar-single-event-learningmaterial-item-title'>
+        {{#if lm.required}}
+          {{fa-icon 'star' title=requiredPhrase}}
+        {{/if}}
+        {{#if lm.url}}<a href='{{lm.url}}'>{{lm.title}}</a>{{else}}{{lm.title}}{{/if}}
+        {{#if lm.filesize}} ({{filesize lm.filesize}}){{/if}}
+      </div>
+      {{#if lm.citation}}
+        <div class='ilios-calendar-single-event-learningmaterial-item-citation'>
+          {{lm.citation}}
+        </div>
+      {{/if}}
+      <div class='ilios-calendar-single-event-learningmaterial-item-description'>
+        {{lm.description}}
+      </div>
+      
+    </li>
+    
   {{/each}}
 </ul>

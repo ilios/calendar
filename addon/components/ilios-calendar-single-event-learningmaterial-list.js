@@ -6,6 +6,7 @@ const {computed} = Ember;
 export default Ember.Component.extend({
   layout: layout,
   learningMaterials: [],
+  requiredPhrase: null,
   proxiedLearningMaterials: computed('learningMaterials.[]', function(){
     return this.get('learningMaterials').map(lm => {
       let icon;
@@ -20,12 +21,9 @@ export default Ember.Component.extend({
           icon = 'fa-file-powerpoint-o';
         }
       }
+      lm.icon = icon;
       
-      return {
-        title: lm.title,
-        url: lm.url,
-        icon
-      };
+      return lm;
     });
   })
 });
