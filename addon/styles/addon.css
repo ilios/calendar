@@ -481,6 +481,10 @@
   margin-right: 2em;
 }
 
+.ilios-calendar-single-event h2 {
+  font-weight: bold;
+}
+
 .ilios-calendar-single-event fieldset {
   border: 0;
   border-left: 3px solid #eee;
@@ -488,14 +492,27 @@
   width: 45%;
 }
 
-.ilios-calendar-single-event.tree li {
+.ilios-calendar-single-event fieldset caption {
+  color: #009ccc;
   font-weight: bold;
 }
 
-.ilios-calendar-single-event.tree ul {
+.ilios-calendar-single-event .ilios-calendar-single-event-offered-at {
+  font-weight: bold;
+}
+
+.ilios-calendar-single-event .ilios-calendar-single-event-instructors {
+  font-style: italic;
+}
+
+.ilios-calendar-single-event ul.tree li {
+  font-weight: bold;
+}
+
+.ilios-calendar-single-event ul.tree ul {
   margin-left: 1em;
 }
 
-.ilios-calendar-single-event.tree ul li {
+.ilios-calendar-single-event ul.tree ul li {
   font-weight: normal;
 }

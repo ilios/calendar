@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar-single-event-objective-list';
 
-let { computed, isEmpty } = Ember;
+const { computed, isEmpty } = Ember;
 
 export default Ember.Component.extend({
   layout,

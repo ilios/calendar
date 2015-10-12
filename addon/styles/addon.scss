@@ -547,16 +547,31 @@ $base-accent-color: $ilios-accent-color;
 
 
 .ilios-calendar-single-event {
+  h2 {
+    font-weight: bold;
+  }
+  
   fieldset {
     border: 0;
     border-left: 3px solid $grey;
     float: left;
     width: 45%;
+    
+    caption {
+      color: $ilios-blue;
+      font-weight: bold;
+    }
   }
   
+  .ilios-calendar-single-event-offered-at {
+    font-weight: bold;
+  }
   
+  .ilios-calendar-single-event-instructors {
+    font-style: italic;
+  }
   
-  &.tree {
+  ul.tree {
     li {
       font-weight: bold;
     }
