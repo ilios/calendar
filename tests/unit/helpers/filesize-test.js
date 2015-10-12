@@ -3,8 +3,17 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | filesize');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  var result = filesize(42);
-  assert.ok(result);
+test('it bytes', function(assert) {
+  var result = filesize([42]);
+  assert.equal(result, '42b');
+});
+
+test('it kilobytes', function(assert) {
+  var result = filesize([4200]);
+  assert.equal(result, '4kb');
+});
+
+test('it megabytes', function(assert) {
+  var result = filesize([4200000]);
+  assert.equal(result, '4mb');
 });

@@ -15,8 +15,8 @@ test('it renders', function(assert) {
   ]);
   this.render(hbs`{{ilios-calendar-single-event-objective-list objectives=objectives}}`);
   
-  assert.equal(this.$('ul:eq(0)>li:eq(0)').text().trim().search(/^great things/), 0);    
-  assert.equal(this.$('ul:eq(0)>li:eq(0)>ul>li:eq(0)').text().trim().search(/^cheese/), 0);    
-  assert.equal(this.$('ul:eq(0)>li:eq(1)').text().trim().search(/^annoying things/), 0);    
-  assert.equal(this.$('ul:eq(0)>li:eq(1)>ul>li:eq(1)').text().trim().search(/^traffic/), 0);
+  assert.equal(this.$('ul:eq(0)>li:eq(0)').text().trim().search(/^annoying things/), 0);    
+  assert.equal(this.$('ul:eq(0)>li:eq(0)>ul>li:eq(1)').text().trim().search(/^traffic/), 0);
+  assert.equal(this.$('ul:eq(0)>li:eq(1)').text().trim().search(/^great things/), 0);    
+  assert.equal(this.$('ul:eq(0)>li:eq(1)>ul>li:eq(0)').text().trim().search(/^cheese/), 0);
 });

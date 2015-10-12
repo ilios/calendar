@@ -1,14 +1,18 @@
 import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar-single-event-learningmaterial-list';
 
-const {computed} = Ember;
+const {computed, isEmpty} = Ember;
 
 export default Ember.Component.extend({
   layout: layout,
   learningMaterials: [],
   requiredPhrase: null,
   proxiedLearningMaterials: computed('learningMaterials.[]', function(){
-    return this.get('learningMaterials').map(lm => {
+    let learningMaterials = this.get('learningMaterials');
+    if(isEmpty(learningMaterials)){
+      return [];
+    }
+    return learningMaterials.map(lm => {
       let icon;
       if(lm.type === 'link'){
         icon = 'fa-link';
