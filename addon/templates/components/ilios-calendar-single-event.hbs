@@ -1,27 +1,34 @@
-<h2>{{title}}</h2>
-<fieldset>
-  <caption>{{coursePhrase}}</caption>
+<div class='ilios-calendar-single-event-summary'>
+  <h2>{{title}}</h2>
+  <p>{{description}}</p><br />
   <div class='ilios-calendar-single-event-offered-at'>{{offeredAtPhrase}}</div>
   <div class='ilios-calendar-single-event-instructors'>{{taughtByPhrase}} {{listOfInstructors}}</div>
   <div class='ilios-calendar-single-event-offered-at'>{{offeringIsAPhrase}}</div>
+</div>
+<fieldset>
+  <div class='ilios-calendar-single-event-learningmaterial-list'>
+    <h3>{{courseLearningMaterialsPhrase}}</h3>
+    {{ilios-calendar-single-event-learningmaterial-list
+      learningMaterials=courseLearningMaterials
+      requiredPhrase=requiredPhrase
+    }}
+  </div>
   <div class='ilios-calendar-single-event-objective-list'>
     <h3>{{courseObjectivesPhrase}}</h3>
     {{ilios-calendar-single-event-objective-list objectives=courseObjectives}}
   </div>
-  <div class='ilios-calendar-single-event-learningmaterial-list'>
-    <h3>{{courseLearningMaterialsPhrase}}</h3>
-    {{ilios-calendar-single-event-learningmaterial-list learningMaterials=courseLearningMaterials}}
-  </div>
 </fieldset>
 
 <fieldset>
-  <caption>{{sessionPhrase}}</caption>
+  <div class='ilios-calendar-single-event-learningmaterial-list'>
+    <h3>{{sessionLearningMaterialsPhrase}}</h3>
+    {{ilios-calendar-single-event-learningmaterial-list
+      learningMaterials=sessionLearningMaterials
+      requiredPhrase=requiredPhrase
+    }}
+  </div>
   <div class='ilios-calendar-single-event-objective-list'>
     <h3>{{sessionObjectivesPhrase}}</h3>
     {{ilios-calendar-single-event-objective-list objectives=sessionObjectives}}
-  </div>
-  <div class='ilios-calendar-single-event-learningmaterial-list'>
-    <h3>{{sessionLearningMaterialsPhrase}}</h3>
-    {{ilios-calendar-single-event-learningmaterial-list learningMaterials=sessionLearningMaterials}}
   </div>
 </fieldset>
