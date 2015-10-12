@@ -20,16 +20,18 @@ export default Ember.Component.extend({
         title,
         objectives: []
       };
-      domain.objectives = this.get('objectives').filter(obj => {
+      let objectives = this.get('objectives').filter(obj => {
         return obj.domain.toString() === title;
       }).map(obj => {
         return obj.title;
       });
+      domain.objectives = Ember.A(objectives).sortBy('title');
       
       return domain;
     });
     
+    
     //make it an ennumerable so it can be observed
-    return Ember.A(domains);
+    return Ember.A(domains).sortBy('title');
   }),
 });
