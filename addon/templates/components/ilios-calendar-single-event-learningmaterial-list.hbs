@@ -1,5 +1,5 @@
-<ul class='static-list'>
-  {{#each learningMaterials as |lm|}}
-    <li><a href='{{lm.url}}'>{{lm.title}}</a></li>
+<ul class='static-list fa-ul'>
+  {{#each proxiedLearningMaterials as |lm|}}
+    <li>{{fa-icon lm.icon listItem=true}} <a href='{{lm.url}}'>{{lm.title}}</a></li>
   {{/each}}
 </ul>
