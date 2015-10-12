@@ -52,16 +52,17 @@ export default Controller.extend({
     },
     selectEvent(event){
       let fakeEvent = {
-        title: 'Fake Event',
+        courseTitle: 'Fake Event',
+        sessionTitle: 'Fake Event',
         offeredAtPhrase: 'On ' + moment(event.startDate).format('dddd, MMMM Do YYYY, h:mm a'),
         taughtByPhrase: 'Taught By Barry Bods, Neil deGrasse Tyson',
-        offeringIsAPhrase: 'This offering is a(n) Lecture',
+        sessionIs: 'Session is "lecture"',
         courseObjectives: [
           {domain: 'Medical (With People)', title: 'Help People'},
           {domain: 'Medical (With Machines)', title: 'Use Computers'},
         ],
         courseLearningMaterials: [
-          {title: 'syllabus', url: 'http://#'},
+          {title: 'syllabus', url: 'http://#', type: 'citation'},
         ],
         sessionObjectives: [
           {domain: 'Medical (With People)', title: 'Help People'},
@@ -69,7 +70,7 @@ export default Controller.extend({
           {domain: 'Medical (With Machines)', title: 'Help People'},
         ],
         sessionLearningMaterials: [
-          {title: 'slides', url: 'http://#'},
+          {title: 'slides', url: 'http://#', type: 'citation'},
         ]
       };
       
@@ -77,31 +78,3 @@ export default Controller.extend({
     }
   }
 });
-
-// <h2>{{title}}</h2>
-// <fieldset>
-//   <caption>{{coursePhrase}}</caption>
-//   <div class='ilios-calendar-single-event-offered-at'>{{offeredAtPhrase}}</div>
-//   <div class='ilios-calendar-single-event-instructors'>{{taughtByPhrase}} {{listOfInstructors}}</div>
-//   <div class='ilios-calendar-single-event-offered-at'>{{offeringIsAPhrase}}</div>
-//   <div class='ilios-calendar-single-event-objective-list'>
-//     <h4>{{courseObjectivesPhrase}}</h4>
-//     {{ilios-calendar-single-event-objective-list objectives=courseObjectives}}
-//   </div>
-//   <div class='ilios-calendar-single-event-learningmaterial-list'>
-//     <h4>{{courseLearningMaterialsPhrase}}</h4>
-//     {{ilios-calendar-single-event-learningmaterial-list learningMaterials=courseLearningMaterials}}
-//   </div>
-// </fieldset>
-// 
-// <fieldset>
-//   <caption>{{sessionPhrase}}</caption>
-//   <div class='ilios-calendar-single-event-objective-list'>
-//     <h4>{{sessionObjectivesPhrase}}</h4>
-//     {{ilios-calendar-single-event-objective-list objectives=sessionObjectives}}
-//   </div>
-//   <div class='ilios-calendar-single-event-learningmaterial-list'>
-//     <h4>{{sessionLearningMaterialsPhrase}}</h4>
-//     {{ilios-calendar-single-event-learningmaterial-list learningMaterials=sessionLearningMaterials}}
-//   </div>
-// </fieldset>
