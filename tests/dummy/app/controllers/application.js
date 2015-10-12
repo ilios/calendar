@@ -1,4 +1,3 @@
-/* global alert */
 import Ember from 'ember';
 import DS from 'ember-data';
 import moment from 'moment';
@@ -9,6 +8,7 @@ const { PromiseArray } = DS;
 export default Controller.extend({
   selectedDate: new Date(),
   selectedView: 'week',
+  fakeSingleEvent: false,
   fromTimeStamp: computed('selectedDate', 'selectedView', function(){
     return moment(this.get('selectedDate')).startOf(this.get('selectedView')).unix();
   }),
@@ -51,7 +51,30 @@ export default Controller.extend({
       this.set('selectedView', newView);
     },
     selectEvent(event){
-      alert('Event "' + event.name + '" selected.  App needs to catch the "selectEvent" action when it is fired.');
+      let fakeEvent = {
+        courseTitle: 'Fake Event',
+        sessionTitle: 'Fake Event',
+        offeredAtPhrase: 'On ' + moment(event.startDate).format('dddd, MMMM Do YYYY, h:mm a'),
+        taughtByPhrase: 'Taught By Barry Bods, Neil deGrasse Tyson',
+        sessionIs: 'Session is "lecture"',
+        courseObjectives: [
+          {domain: 'Medical (With People)', title: 'Help People'},
+          {domain: 'Medical (With Machines)', title: 'Use Computers'},
+        ],
+        courseLearningMaterials: [
+          {title: 'syllabus', url: 'http://#', type: 'citation'},
+        ],
+        sessionObjectives: [
+          {domain: 'Medical (With People)', title: 'Help People'},
+          {domain: 'Medical (With Machines)', title: 'Use Computers'},
+          {domain: 'Medical (With Machines)', title: 'Help People'},
+        ],
+        sessionLearningMaterials: [
+          {title: 'slides', url: 'http://#', type: 'citation'},
+        ]
+      };
+      
+      this.set('fakeSingleEvent', fakeEvent);
     }
   }
 });

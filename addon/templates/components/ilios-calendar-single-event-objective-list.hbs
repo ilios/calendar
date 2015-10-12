@@ -1,0 +1,11 @@
+<ul class='tree'>
+  {{#each domains as |domain|}}
+    <li>{{domain.title}}
+      <ul>
+        {{#each domain.objectives as |title|}}
+          <li>{{title}}</li>
+        {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>
