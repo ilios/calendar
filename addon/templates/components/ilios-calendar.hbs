@@ -11,11 +11,12 @@
 </ul>
 <div class='ilios-calendar-calendar'>
   <h1 class="{{if calendarEventsPromise.isFulfilled 'loaded'}}">{{fa-icon 'spinner' spin=true}} {{loadingMessage}}</h1>
-  {{component (concat "ilios-calendar-" selectedView) 
+  {{component (concat "ilios-calendar-" selectedView)
     calendarEvents=calendarEventsPromise.content
     date=selectedDate
     selectEvent='selectEvent'
     changeDate='changeDate'
     changeView='changeView'
+    dueThisDay=dueThisDay
   }}
 </div>
