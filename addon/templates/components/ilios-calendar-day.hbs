@@ -17,7 +17,7 @@
       <li class="event-column">
         {{#each hours as |hour|}}
           {{#each hour.events as |event|}}
-            {{ilios-calendar-event event=event action='selectEvent'}}
+            {{ilios-calendar-event event=event action='selectEvent' dueThisDay=dueThisDay}}
           {{/each}}
         {{/each}}
       </li>
