@@ -15,6 +15,7 @@ export default Component.extend({
   month: 'Month',
   today: 'Today',
   loadingMessage: 'Loading Events...',
+  dueThisDay: 'Due this day',
   actions: {
     changeView(newView){
       this.sendAction('changeView', newView);
