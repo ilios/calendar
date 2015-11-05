@@ -14,9 +14,9 @@
   {{#if showIcsFeed}}
     {{ics-feed url=icsFeedUrl instructions=icsInstructions refresh='refreshIcsFeed'}}
   {{/if}}
-  <h1 class="{{if calendarEventsPromise.isFulfilled 'loaded'}}">{{fa-icon 'spinner' spin=true}} {{loadingMessage}}</h1>
+  <h1 class="{{if compiledCalendarEvents.isFulfilled 'loaded'}}">{{fa-icon 'spinner' spin=true}} {{loadingMessage}}</h1>
   {{component (concat "ilios-calendar-" selectedView)
-    calendarEvents=calendarEventsPromise.content
+    calendarEvents=compiledCalendarEvents.content
     date=selectedDate
     selectEvent='selectEvent'
     changeDate='changeDate'
