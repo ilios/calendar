@@ -17,6 +17,10 @@ $ilios-accent-color: $ilios-blue;
 
 $base-accent-color: $ilios-accent-color;
 
+$ilios-orange: #c60;
+
+$ilios-green: #84c444;
+
 @mixin border-top-radius($radii) {
   border-top-left-radius: $radii;
   border-top-right-radius: $radii;
@@ -526,6 +530,15 @@ $base-accent-color: $ilios-accent-color;
 
   .calendar-view-picker {
     float: right;
+    
+    .highlight {
+      color: $ilios-orange;
+      font-size: 1.25em;
+    }
+    
+    .on {
+      color: $ilios-green;
+    }
   }
 
   .calendar-time-picker {
@@ -542,6 +555,25 @@ $base-accent-color: $ilios-accent-color;
     &.inline li {
       margin-right: 2em;
     }
+  }
+  
+  .ilios-calendar-ics-feed {
+    border: 1px dotted $ilios-orange;
+    margin: auto;
+    margin-bottom: 1em;
+    padding: 2em;
+    width: 50%;
+    
+    input {
+      padding: .25em;
+      width: 90%;
+    }
+    
+    button {
+      color: $ilios-accent-color;
+      margin-left: 1em;
+    }
+    
   }
 }
 

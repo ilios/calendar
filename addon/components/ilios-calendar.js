@@ -10,12 +10,15 @@ export default Component.extend({
   selectedView: null,
   selectedDate: null,
   calendarEventsPromise: false,
+  icsFeedUrl: null,
   day: 'Day',
   week: 'Week',
   month: 'Month',
   today: 'Today',
   loadingMessage: 'Loading Events...',
   dueThisDay: 'Due this day',
+  icsInstructions: 'To add your Ilios calendar to another application or service, use this URL.  This URL is like a password. Anyone who knows it can view your calendar! If you wish to invalidate this URL and generate a new one, press the refresh button.',
+  showIcsFeed: false,
   actions: {
     changeView(newView){
       this.sendAction('changeView', newView);
@@ -37,6 +40,13 @@ export default Component.extend({
     },
     selectEvent(event){
       this.sendAction('selectEvent', event);
+    },
+    toggleIcsFeed(){
+      this.set('showIcsFeed', !this.get('showIcsFeed'));
+    },
+    refreshIcsFeed(){
+      this.set('icsFeedUrl', null);
+      this.sendAction('refreshIcsFeed');
     }
   }
 });

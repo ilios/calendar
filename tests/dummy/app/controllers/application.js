@@ -9,6 +9,7 @@ export default Controller.extend({
   selectedDate: new Date(),
   selectedView: 'week',
   fakeSingleEvent: false,
+  icsFeedUrl: 'http://example.com/icsfeedurlsareusuallyprettylong',
   fromTimeStamp: computed('selectedDate', 'selectedView', function(){
     return moment(this.get('selectedDate')).startOf(this.get('selectedView')).unix();
   }),
@@ -75,6 +76,9 @@ export default Controller.extend({
       };
       
       this.set('fakeSingleEvent', fakeEvent);
+    },
+    refreshIcsFeed(){
+      this.set('icsFeedUrl', 'http://example.com/a_new_ics_feed_value');
     }
   }
 });
