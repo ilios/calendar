@@ -25,7 +25,7 @@ export default Component.extend({
     let defer = RSVP.defer();
     this.get('calendarEventsPromise').then(events => {
       if(this.get('selectedView') === 'day'){
-        defer.resolve(events);
+        defer.resolve(Ember.A(events));
       } else {
         let hashedEvents = {};
         
