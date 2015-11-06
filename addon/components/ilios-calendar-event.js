@@ -3,8 +3,9 @@ import { default as CalendarEvent } from 'el-calendar/components/calendar-event'
 import layout from '../templates/components/ilios-calendar-event';
 import moment from 'moment';
 
-const {computed, Handlebars, isBlank} = Ember;
-const {SafeString} = Handlebars;
+const { computed, Handlebars, isBlank } = Ember;
+const { SafeString } = Handlebars;
+const { notEmpty }= computed;
 
 export default CalendarEvent.extend({
   layout,
@@ -35,7 +36,7 @@ export default CalendarEvent.extend({
       return `${location}<br />${startTime} - ${endTime}<br />${name}`;
     }
   }),
-
+  isIlm: notEmpty('event.ilmSession'),
   style: computed(function() {
     if (this.get('event') == null) {
       return new SafeString('');
