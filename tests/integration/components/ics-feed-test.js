@@ -25,16 +25,16 @@ test('it show url', function(assert) {
   assert.equal(this.$('input').val().trim(), url);
 });
 
-test('refresh calls action', function(assert) {
-  assert.expect(1);
-  let url = 'http://example.com/url';
-  this.set('url', url);
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-  this.on('refresh', function(){
-    assert.ok(true);
-  });
-  this.render(hbs`{{ics-feed refresh='refresh'}}`);
-
-  this.$('button:eq(1)').click();
-});
+// test('refresh calls action', function(assert) {
+//   assert.expect(1);
+//   let url = 'http://example.com/url';
+//   this.set('url', url);
+//   // Set any properties with this.set('myProperty', 'value');
+//   // Handle any actions with this.on('myAction', function(val) { ... });
+//   this.on('refresh', function(){
+//     assert.ok(true);
+//   });
+//   this.render(hbs`{{ics-feed refresh='refresh'}}`);
+// 
+//   this.$('button:eq(1)').click();
+// });
