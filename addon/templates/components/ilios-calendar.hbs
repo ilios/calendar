@@ -1,4 +1,5 @@
 <ul class='inline calendar-view-picker'>
+  <li class='clickable highlight {{if showIcsFeed "on"}}' {{action 'toggleIcsFeed'}}>{{fa-icon 'feed'}}</li>
   <li class='clickable' {{action 'changeView' 'day'}}>{{day}}</li>
   <li class='clickable' {{action 'changeView' 'week'}}>{{week}}</li>
   <li class='clickable' {{action 'changeView' 'month'}}>{{month}}</li>
@@ -10,6 +11,9 @@
   <li class='clickable' {{action 'goForward'}}>{{fa-icon 'angle-right'}}</li>
 </ul>
 <div class='ilios-calendar-calendar'>
+  {{#if showIcsFeed}}
+    {{ics-feed url=icsFeedUrl instructions=icsInstructions refresh='refreshIcsFeed'}}
+  {{/if}}
   <h1 class="{{if calendarEventsPromise.isFulfilled 'loaded'}}">{{fa-icon 'spinner' spin=true}} {{loadingMessage}}</h1>
   {{component (concat "ilios-calendar-" selectedView)
     calendarEvents=calendarEventsPromise.content
