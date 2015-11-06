@@ -21,7 +21,7 @@ export default Component.extend({
   dueThisDay: 'Due this day',
   icsInstructions: 'To add your Ilios calendar to another application or service, use this URL.  This URL is like a password. Anyone who knows it can view your calendar! If you wish to invalidate this URL and generate a new one, press the refresh button.',
   showIcsFeed: false,
-  compiledCalendarEvents: computed('calendarEvents', 'selectedView', function(){
+  compiledCalendarEvents: computed('calendarEventsPromise', 'selectedView', function(){
     let defer = RSVP.defer();
     this.get('calendarEventsPromise').then(events => {
       if(this.get('selectedView') === 'day'){

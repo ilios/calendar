@@ -562,16 +562,18 @@ $ilios-green: #84c444;
     margin: auto;
     margin-bottom: 1em;
     padding: 2em;
-    width: 50%;
+    width: 90%;
     
     input {
       padding: .25em;
-      width: 90%;
+      width: 80%;
     }
     
     button {
+      background-color: $white;
       color: $ilios-accent-color;
-      margin-left: 1em;
+      margin-left: .5em;
+      padding: 0;
     }
     
   }
