@@ -1,14 +1,23 @@
 {{#if event}}
   <span class='ilios-calendar-event-time'>
-    <span class='ilios-calendar-event-start'>
-      {{moment-format event.startDate 'h:mma'}}
-    </span>
-    <span class='ilios-calendar-event-end'>
-      - {{moment-format event.endDate 'h:mma'}}
-    </span>
+    {{#if isIlm}}
+      <span class='ilios-calendar-event-start'>
+        Due: {{moment-format event.startDate 'h:mma'}}
+      </span>
+    {{else}}
+      <span class='ilios-calendar-event-start'>
+        {{moment-format event.startDate 'h:mma'}}
+      </span>
+      <span class='ilios-calendar-event-end'>
+        - {{moment-format event.endDate 'h:mma'}}
+      </span>
+    {{/if}}
+    
   </span>
   <span class='ilios-calendar-event-location'>
-    {{event.location}}:
+    {{#if event.location.length}}
+      {{event.location}}:
+    {{/if}}
   </span>
   <span class='ilios-calendar-event-name'>
     {{event.name}}
