@@ -25,6 +25,22 @@ export default Controller.extend({
     todaysEvent.endDate = today.clone().add(1, 'hour');
     
     events.pushObject(todaysEvent);
+    
+    let todaysDoubleEvent = this.createUserEventObject();
+    todaysDoubleEvent.name = 'Some new thing';
+    todaysDoubleEvent.startDate = today.clone();
+    todaysDoubleEvent.endDate = today.clone().add(1, 'hour');
+    
+    events.pushObject(todaysDoubleEvent);
+    
+    
+    
+    let anotherEvent = this.createUserEventObject();
+    anotherEvent.name = 'Sweet Lecture';
+    anotherEvent.startDate = today.clone().add(2, 'hour');
+    anotherEvent.endDate = today.clone().add(3, 'hour');
+    
+    events.pushObject(anotherEvent);
     let promise = RSVP.resolve(events);
     return PromiseArray.create({
       promise: promise
