@@ -365,3 +365,13 @@
   .ilios-calendar-single-event ul.tree ul li {
     font-weight: normal;
     list-style-type: disc; }
+
+.ilios-calendar-single-event-learningmaterial-item-notes i {
+  display: inline;
+  font-size: .85em;
+  margin-right: 5px; }
+
+.ilios-calendar-single-event-learningmaterial-item-notes p {
+  display: inline;
+  font-size: .85em;
+  font-style: italic; }

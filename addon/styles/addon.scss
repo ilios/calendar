@@ -45,7 +45,7 @@ $ilios-green: #84c444;
 .ilios-calendar {
 
   .ilios-calendar-month {
-    
+
     .el-calendar {
 
       .week {
@@ -514,7 +514,7 @@ $ilios-green: #84c444;
   .ilios-calendar-calendar {
     clear: both;
     position: relative;
-  
+
     h1 {
       left: 4em;
       opacity: 75;
@@ -530,12 +530,12 @@ $ilios-green: #84c444;
 
   .calendar-view-picker {
     float: right;
-    
+
     .highlight {
       color: $ilios-orange;
       font-size: 1.25em;
     }
-    
+
     .on {
       color: $ilios-green;
     }
@@ -544,7 +544,7 @@ $ilios-green: #84c444;
   .calendar-time-picker {
     float: left;
   }
-  
+
   ul {
     &.inline,
     &.inline li {
@@ -556,26 +556,26 @@ $ilios-green: #84c444;
       margin-right: 2em;
     }
   }
-  
+
   .ilios-calendar-ics-feed {
     border: 1px dotted $ilios-orange;
     margin: auto;
     margin-bottom: 1em;
     padding: 2em;
     width: 90%;
-    
+
     input {
       padding: .25em;
       width: 80%;
     }
-    
+
     button {
       background-color: $white;
       color: $ilios-accent-color;
       margin-left: .5em;
       padding: 0;
     }
-    
+
   }
 }
 
@@ -584,43 +584,43 @@ $ilios-green: #84c444;
   h2 {
     font-weight: bold;
   }
-  
+
   fieldset {
     border: 0;
     border-left: 3px solid $grey;
     float: left;
     width: 45%;
-    
+
     caption {
       color: $ilios-blue;
       font-weight: bold;
     }
   }
-  
+
   .ilios-calendar-single-event-summary {
     h1 {
       font-weight: normal;
-      
+
       em {
         font-style: normal;
         font-weight: bold;
       }
     }
   }
-  
+
   .ilios-calendar-single-event-offered-at {
     font-weight: bold;
   }
-  
+
   .ilios-calendar-single-event-instructors {
     font-style: italic;
   }
-  
+
   .ilios-calendar-single-event-learningmaterial-filesize {
     font-size: .8em;
     font-style: italic;
   }
-  
+
   ul.tree {
     li {
       font-weight: bold;
@@ -629,11 +629,25 @@ $ilios-green: #84c444;
     ul {
       margin-bottom: 1em;
       margin-left: 1em;
-      
+
       li {
         font-weight: normal;
         list-style-type: disc;
       }
     }
+  }
+}
+
+.ilios-calendar-single-event-learningmaterial-item-notes {
+  i {
+    display: inline;
+    font-size: .85em;
+    margin-right: 5px;
+  }
+
+  p {
+    display: inline;
+    font-size: .85em;
+    font-style: italic;
   }
 }

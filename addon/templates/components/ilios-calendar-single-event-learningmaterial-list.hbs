@@ -12,16 +12,24 @@
           {{#if lm.filesize}} ({{filesize lm.filesize}}){{/if}}
         </span>
       </div>
+
       {{#if lm.citation}}
         <div class='ilios-calendar-single-event-learningmaterial-item-citation'>
           {{lm.citation}}
         </div>
       {{/if}}
-      <div class='ilios-calendar-single-event-learningmaterial-item-description'>
-        {{lm.description}}
-      </div>
 
+      {{#if lm.description}}
+        <div class='ilios-calendar-single-event-learningmaterial-item-description'>
+          {{{lm.description}}}
+        </div>
+      {{/if}}
+
+      {{#if lm.notes}}
+        <div class='ilios-calendar-single-event-learningmaterial-item-notes'>
+          {{fa-icon 'pencil-square-o'}}<p>{{{lm.notes}}}</p>
+        </div>
+      {{/if}}
     </li>
-
   {{/each}}
 </ul>
