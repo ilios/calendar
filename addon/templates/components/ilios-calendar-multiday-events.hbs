@@ -1,0 +1,13 @@
+{{#if events.length}}
+  <div class='ilios-calendar-multiday-events'>
+  <h4>{{multidayEvents}}</h4>
+    <ul>
+      {{#each events as |event|}}
+        <li >
+          {{moment-format event.startDate 'M/D/YY h:mma'}} - {{moment-format event.endDate 'M/D/YY h:mma'}} 
+          <span {{action 'selectEvent' event}} class='clickable'>{{event.name}} </span> {{event.location}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
