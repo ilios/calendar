@@ -375,3 +375,14 @@
   display: inline;
   font-size: .85em;
   font-style: italic; }
+
+.ilios-calendar-multiday-events {
+  border: 1px dotted #009ccc;
+  margin-top: 1em;
+  padding: 1em 0; }
+  .ilios-calendar-multiday-events h4 {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-top: 0; }
+  .ilios-calendar-multiday-events ul {
+    margin-left: 1em; }

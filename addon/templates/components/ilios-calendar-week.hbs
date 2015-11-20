@@ -1,4 +1,4 @@
-{{#el-weekly-calendar date=date events=calendarEvents as |days|}}
+{{#el-weekly-calendar date=date events=singleDayEvents as |days|}}
   <div class="row">
     <div class="cell">
     </div>
@@ -37,3 +37,5 @@
   {{/each}}
   </div>
 {{/el-weekly-calendar}}
+
+{{ilios-calendar-multiday-events multidayEvents=multidayEvents events=multiDayEventsList selectEvent='selectEvent'}}
