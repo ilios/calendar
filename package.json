@@ -1,6 +1,6 @@
 {
   "name": "ilios-calendar",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "description": "Provides the ilios calendar to the ilios frontend and embeded app.",
   "directories": {
