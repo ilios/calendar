@@ -3,14 +3,15 @@ import { default as CalendarEvent } from 'el-calendar/components/calendar-event'
 import layout from '../templates/components/ilios-calendar-event-month';
 import moment from 'moment';
 
-const {computed, Handlebars, isBlank} = Ember;
-const {SafeString} = Handlebars;
+const { computed, Handlebars, isBlank } = Ember;
+const { SafeString } = Handlebars;
+const { notEmpty, any } = computed;
 
 export default CalendarEvent.extend({
   layout,
   event: null,
   timeFormat: 'h:mma',
-  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':month-event'],
+  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':month-event', 'clickable:clickable'],
   tooltipContent: computed('event', function() {
     const location = this.get('event.location');
     const name = this.get('event.name');
@@ -34,7 +35,12 @@ export default CalendarEvent.extend({
   style: computed(function() {
     return new SafeString('');
   }),
+  isIlm: notEmpty('event.ilmSession'),
+  isOffering: notEmpty('event.offering'),
+  clickable: any('isIlm', 'isOffering'),
   click(){
-    this.sendAction('action', this.get('event'));
+    if(this.get('clickable')){
+      this.sendAction('action', this.get('event'));
+    }
   }
 });

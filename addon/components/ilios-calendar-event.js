@@ -5,13 +5,13 @@ import moment from 'moment';
 
 const { computed, Handlebars, isBlank } = Ember;
 const { SafeString } = Handlebars;
-const { notEmpty }= computed;
+const { notEmpty, any }= computed;
 
 export default CalendarEvent.extend({
   layout,
   event: null,
   timeFormat: 'h:mma',
-  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':day'],
+  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':day', 'clickable:clickable'],
   tooltipContent: computed('event', function() {
     if (this.get('event') == null) {
       return '';
@@ -37,6 +37,9 @@ export default CalendarEvent.extend({
     }
   }),
   isIlm: notEmpty('event.ilmSession'),
+  isOffering: notEmpty('event.offering'),
+  clickable: any('isIlm', 'isOffering'),
+  
   style: computed(function() {
     if (this.get('event') == null) {
       return new SafeString('');
@@ -53,6 +56,8 @@ export default CalendarEvent.extend({
   }),
 
   click(){
-    this.sendAction('action', this.get('event'));
+    if(this.get('clickable')){
+      this.sendAction('action', this.get('event'));
+    }
   }
 });
