@@ -45,6 +45,14 @@ export default Controller.extend({
     multiDayEvent.endDate = today.clone().add(3, 'day');
     events.pushObject(multiDayEvent);
     
+    let tomorrow = moment().add(1, 'day').hour(8);
+    let tomorrowsEvents = this.createUserEventObject();
+    tomorrowsEvents.name = 'Tomorrows Lecture';
+    tomorrowsEvents.startDate = tomorrow.clone();
+    tomorrowsEvents.endDate = tomorrow.clone().add(2, 'hour');
+    
+    events.pushObject(tomorrowsEvents);
+    
     let promise = RSVP.resolve(events);
     return PromiseArray.create({
       promise: promise

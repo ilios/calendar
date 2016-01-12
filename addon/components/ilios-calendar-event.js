@@ -5,13 +5,14 @@ import moment from 'moment';
 
 const { computed, Handlebars, isBlank } = Ember;
 const { SafeString } = Handlebars;
-const { notEmpty, any }= computed;
+const { notEmpty, any } = computed;
 
 export default CalendarEvent.extend({
   layout,
   event: null,
   timeFormat: 'h:mma',
-  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':day', 'clickable:clickable'],
+  isDay: false,
+  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'isDay:day', 'event.eventClass', 'clickable:clickable'],
   tooltipContent: computed('event', function() {
     if (this.get('event') == null) {
       return '';
@@ -44,9 +45,9 @@ export default CalendarEvent.extend({
     if (this.get('event') == null) {
       return new SafeString('');
     }
-
+  
     let escape = Handlebars.Utils.escapeExpression;
-
+  
     return new SafeString(
       `top: ${escape(this.calculateTop())}%;
        height: ${escape(this.calculateHeight())}%;
