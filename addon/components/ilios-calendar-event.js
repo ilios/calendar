@@ -26,6 +26,14 @@ export default CalendarEvent.extend({
       return contents;
     };
 
+    let addCourseTitleToContents = function(contents, courseTitle) {
+      const coursePhrase = 'Course'; // @todo make this translatable. [ST 2016/01/14]
+      if (contents) {
+        contents = contents + `<br />${coursePhrase}: ${courseTitle}`;
+      }
+      return contents;
+    };
+
     const location = this.get('event.location');
     const name = this.get('event.name');
     const startTime = moment(this.get('event.startDate')).format(this.get('timeFormat'));
@@ -33,13 +41,14 @@ export default CalendarEvent.extend({
     const dueThisDay = this.get('dueThisDay');
     const isILM = this.get('event.ilmSession');
     const instructors = this.get('event.instructors') || [];
-
+    const courseTitle = this.get('event.courseTitle');
     let contents;
 
     if (isILM) {
       if (location) {
         contents = `${location}<br />${dueThisDay}<br />${name}`;
         contents = addInstructorsToContents(contents, instructors);
+        contents = addCourseTitleToContents(contents, courseTitle);
       } else {
         contents = `${dueThisDay}<br />${name}`;
       }
@@ -48,6 +57,7 @@ export default CalendarEvent.extend({
     } else {
       contents = `${location}<br />${startTime} - ${endTime}<br />${name}`;
       contents = addInstructorsToContents(contents, instructors);
+      contents = addCourseTitleToContents(contents, courseTitle);
     }
 
     return contents;
