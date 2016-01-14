@@ -18,24 +18,39 @@ export default CalendarEvent.extend({
       return '';
     }
 
+    let addInstructorsToContents = function(contents, instructors) {
+      const taughtByPhrase = 'Taught By'; // @todo make this translatable. [ST 2016/01/14]
+      if (instructors.length) {
+        contents = contents + `<br />${taughtByPhrase}: ` + instructors.join(', ');
+      }
+      return contents;
+    };
+
     const location = this.get('event.location');
     const name = this.get('event.name');
     const startTime = moment(this.get('event.startDate')).format(this.get('timeFormat'));
     const endTime = moment(this.get('event.endDate')).format(this.get('timeFormat'));
     const dueThisDay = this.get('dueThisDay');
     const isILM = this.get('event.ilmSession');
+    const instructors = this.get('event.instructors') || [];
+
+    let contents;
 
     if (isILM) {
       if (location) {
-        return `${location}<br />${dueThisDay}<br />${name}`;
+        contents = `${location}<br />${dueThisDay}<br />${name}`;
+        contents = addInstructorsToContents(contents, instructors);
       } else {
-        return `${dueThisDay}<br />${name}`;
+        contents = `${dueThisDay}<br />${name}`;
       }
     } else if (isBlank(location)) {
-      return `TBD<br />${startTime} - ${endTime}<br />${name}`;
+      contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
     } else {
-      return `${location}<br />${startTime} - ${endTime}<br />${name}`;
+      contents = `${location}<br />${startTime} - ${endTime}<br />${name}`;
+      contents = addInstructorsToContents(contents, instructors);
     }
+
+    return contents;
   }),
   isIlm: notEmpty('event.ilmSession'),
   isOffering: notEmpty('event.offering'),
