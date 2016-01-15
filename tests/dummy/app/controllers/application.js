@@ -23,7 +23,8 @@ export default Controller.extend({
     todaysEvent.name = 'Some new thing';
     todaysEvent.startDate = today.clone();
     todaysEvent.endDate = today.clone().add(1, 'hour');
-    
+    todaysEvent.instructors = ['Tweedledee', 'Tweedledum'];
+    todaysEvent.courseTitle = 'Lorem Ipsum';
     events.pushObject(todaysEvent);
     
     let todaysDoubleEvent = this.createUserEventObject();
