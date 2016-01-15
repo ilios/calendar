@@ -3,7 +3,7 @@ import { default as CalendarEvent } from 'el-calendar/components/calendar-event'
 import layout from '../templates/components/ilios-calendar-event';
 import moment from 'moment';
 
-const { computed, Handlebars, isBlank } = Ember;
+const { computed, Handlebars, isBlank, isArray } = Ember;
 const { SafeString } = Handlebars;
 const { notEmpty, any } = computed;
 
@@ -15,6 +15,7 @@ export default CalendarEvent.extend({
   classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'isDay:day', 'event.eventClass', 'clickable:clickable'],
   taughtByPhrase: 'Taught by', // @todo make this translatable. [ST 2016/01/14]
   courseTitlePhrase: 'Course', // @todo make this translatable. [ST 2016/01/14]
+  etAlPhrase: 'et al.', // @todo make this translatable. [ST 2016/01/14]
   tooltipContent: computed('event', function() {
     if (this.get('event') == null) {
       return '';
@@ -27,9 +28,15 @@ export default CalendarEvent.extend({
       return contents;
     };
 
-    let addInstructorsToContents = function(contents, instructors, taughtByPhrase) {
-      if (instructors.length) {
+    let addInstructorsToContents = function(contents, instructors, taughtByPhrase, etAlPhrase) {
+      if (! instructors.length) {
+        return contents;
+      }
+
+      if (3 > instructors.length) {
         contents = contents + `<br />${taughtByPhrase} ` + instructors.join(', ');
+      } else {
+        contents = contents + `<br />${taughtByPhrase} ` + instructors.slice(0, 2).join(', ') + ` ${etAlPhrase}`;
       }
       return contents;
     };
@@ -50,17 +57,18 @@ export default CalendarEvent.extend({
     const courseTitle = this.get('event.courseTitle');
     const taughtByPhrase = this.get('taughtByPhrase');
     const courseTitlePhrase = this.get('courseTitlePhrase');
+    const etAlPhrase = this.get('etAlPhrase');
     let contents = '';
 
     if (this.get('isIlm')) {
       contents = addLocationToContents(contents, location);
       contents = contents + `${dueThisDay}<br />${name}`;
-      contents = addInstructorsToContents(contents, instructors, taughtByPhrase);
+      contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
     } else if (this.get('isOffering')) {
       contents = addLocationToContents(contents, location);
       contents = contents + `${location}<br />${startTime} - ${endTime}<br />${name}`;
-      contents = addInstructorsToContents(contents, instructors, taughtByPhrase);
+      contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
     } else { //TBD
       contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
@@ -71,7 +79,19 @@ export default CalendarEvent.extend({
   isIlm: notEmpty('event.ilmSession'),
   isOffering: notEmpty('event.offering'),
   clickable: any('isIlm', 'isOffering'),
-  
+
+  formattedInstructors: computed(function() {
+    let instructors = this.get('event.instructors');
+    if (! isArray(instructors) || ! instructors.length) {
+      return '';
+    }
+    if (3 > instructors.length) {
+      return instructors.join(', ');
+    } else {
+      return instructors.slice(0, 2).join(', ') + ' ' + this.get('etAlPhrase');
+    }
+  }),
+
   style: computed(function() {
     if (this.get('event') == null) {
       return new SafeString('');

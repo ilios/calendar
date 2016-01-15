@@ -27,9 +27,7 @@
     {{#if event.instructors}}
       <span class="ilios-calendar-event-instructors">
         {{taughtByPhrase}}
-        {{#each event.instructors}}
-            {{this}}{{#unless @first}}, {{/unless}}
-        {{/each}}
+        {{formattedInstructors}}
       </span>
     {{/if}}
     {{#if event.courseTitle}}
