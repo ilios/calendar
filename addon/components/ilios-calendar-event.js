@@ -20,6 +20,13 @@ export default CalendarEvent.extend({
       return '';
     }
 
+    let addLocationToContents = function(contents, location) {
+      if (! isBlank(location)) {
+        contents = contents + `${location}<br />`;
+      }
+      return contents;
+    };
+
     let addInstructorsToContents = function(contents, instructors, taughtByPhrase) {
       if (instructors.length) {
         contents = contents + `<br />${taughtByPhrase} ` + instructors.join(', ');
@@ -34,32 +41,29 @@ export default CalendarEvent.extend({
       return contents;
     };
 
-    const location = this.get('event.location');
+    const location = this.get('event.location') || '';
     const name = this.get('event.name');
     const startTime = moment(this.get('event.startDate')).format(this.get('timeFormat'));
     const endTime = moment(this.get('event.endDate')).format(this.get('timeFormat'));
     const dueThisDay = this.get('dueThisDay');
-    const isILM = this.get('event.ilmSession');
     const instructors = this.get('event.instructors') || [];
     const courseTitle = this.get('event.courseTitle');
     const taughtByPhrase = this.get('taughtByPhrase');
     const courseTitlePhrase = this.get('courseTitlePhrase');
-    let contents;
+    let contents = '';
 
-    if (isILM) {
-      if (location) {
-        contents = `${location}<br />${dueThisDay}<br />${name}`;
-        contents = addInstructorsToContents(contents, instructors, taughtByPhrase);
-        contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
-      } else {
-        contents = `${dueThisDay}<br />${name}`;
-      }
-    } else if (isBlank(location)) {
-      contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
-    } else {
-      contents = `${location}<br />${startTime} - ${endTime}<br />${name}`;
+    if (this.get('isIlm')) {
+      contents = addLocationToContents(contents, location);
+      contents = contents + `${dueThisDay}<br />${name}`;
       contents = addInstructorsToContents(contents, instructors, taughtByPhrase);
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
+    } else if (this.get('isOffering')) {
+      contents = addLocationToContents(contents, location);
+      contents = contents + `${location}<br />${startTime} - ${endTime}<br />${name}`;
+      contents = addInstructorsToContents(contents, instructors, taughtByPhrase);
+      contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
+    } else { //TBD
+      contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
     }
 
     return contents;
