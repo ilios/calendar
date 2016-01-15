@@ -67,7 +67,7 @@ export default CalendarEvent.extend({
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
     } else if (this.get('isOffering')) {
       contents = addLocationToContents(contents, location);
-      contents = contents + `${location}<br />${startTime} - ${endTime}<br />${name}`;
+      contents = contents + `${startTime} - ${endTime}<br />${name}`;
       contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
     } else { //TBD
