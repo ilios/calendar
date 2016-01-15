@@ -70,7 +70,7 @@ export default CalendarEvent.extend({
       contents = contents + `${startTime} - ${endTime}<br />${name}`;
       contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
-    } else { //TBD
+    } else { // 'TBD' event
       contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
     }
 
