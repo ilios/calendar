@@ -22,4 +22,16 @@
   <span class='ilios-calendar-event-name'>
     {{event.name}}
   </span>
+  {{! list instructors in day view, if available }}
+  {{#if isDay}}
+    {{#if event.instructors}}
+      <span class="ilios-calendar-event-instructors">
+        {{taughtByPhrase}}
+        {{formattedInstructors}}
+      </span>
+    {{/if}}
+    {{#if event.courseTitle}}
+      <span class="ilios-calendar-event-coursetitle">{{event.courseTitle}}</span>
+    {{/if}}
+  {{/if}}
 {{/if}}
