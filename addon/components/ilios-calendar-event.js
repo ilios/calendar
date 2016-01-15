@@ -13,9 +13,9 @@ export default CalendarEvent.extend({
   timeFormat: 'h:mma',
   isDay: false,
   classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'isDay:day', 'event.eventClass', 'clickable:clickable'],
-  taughtByPhrase: 'Taught by', // @todo make this translatable. [ST 2016/01/14]
-  courseTitlePhrase: 'Course', // @todo make this translatable. [ST 2016/01/14]
-  etAlPhrase: 'et al.', // @todo make this translatable. [ST 2016/01/14]
+  taughtByPhrase: 'Taught by',
+  courseTitlePhrase: 'Course',
+  etAlPhrase: 'et al.',
   tooltipContent: computed('event', function() {
     if (this.get('event') == null) {
       return '';
