@@ -30,6 +30,9 @@
            {{#unless @first}}, {{/unless}}{{this}}
         {{/each}}
       </span>
-  {{/if}}
+    {{/if}}
+    {{#if event.courseTitle}}
+      <span class="ilios-calendar-event-coursetitle">{{event.courseTitle}}</span>
+    {{/if}}
   {{/if}}
 {{/if}}
