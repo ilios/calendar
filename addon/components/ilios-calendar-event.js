@@ -13,23 +13,23 @@ export default CalendarEvent.extend({
   timeFormat: 'h:mma',
   isDay: false,
   classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'isDay:day', 'event.eventClass', 'clickable:clickable'],
+  taughtByPhrase: 'Taught by', // @todo make this translatable. [ST 2016/01/14]
+  courseTitlePhrase: 'Course', // @todo make this translatable. [ST 2016/01/14]
   tooltipContent: computed('event', function() {
     if (this.get('event') == null) {
       return '';
     }
 
-    let addInstructorsToContents = function(contents, instructors) {
-      const taughtByPhrase = 'Taught By'; // @todo make this translatable. [ST 2016/01/14]
+    let addInstructorsToContents = function(contents, instructors, taughtByPhrase) {
       if (instructors.length) {
-        contents = contents + `<br />${taughtByPhrase}: ` + instructors.join(', ');
+        contents = contents + `<br />${taughtByPhrase} ` + instructors.join(', ');
       }
       return contents;
     };
 
-    let addCourseTitleToContents = function(contents, courseTitle) {
-      const coursePhrase = 'Course'; // @todo make this translatable. [ST 2016/01/14]
-      if (contents) {
-        contents = contents + `<br />${coursePhrase}: ${courseTitle}`;
+    let addCourseTitleToContents = function(contents, courseTitle, courseTitlePhrase) {
+      if (courseTitle) {
+        contents = contents + `<br />${courseTitlePhrase}: ${courseTitle}`;
       }
       return contents;
     };
@@ -42,13 +42,15 @@ export default CalendarEvent.extend({
     const isILM = this.get('event.ilmSession');
     const instructors = this.get('event.instructors') || [];
     const courseTitle = this.get('event.courseTitle');
+    const taughtByPhrase = this.get('taughtByPhrase');
+    const courseTitlePhrase = this.get('courseTitlePhrase');
     let contents;
 
     if (isILM) {
       if (location) {
         contents = `${location}<br />${dueThisDay}<br />${name}`;
-        contents = addInstructorsToContents(contents, instructors);
-        contents = addCourseTitleToContents(contents, courseTitle);
+        contents = addInstructorsToContents(contents, instructors, taughtByPhrase);
+        contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
       } else {
         contents = `${dueThisDay}<br />${name}`;
       }
@@ -56,8 +58,8 @@ export default CalendarEvent.extend({
       contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
     } else {
       contents = `${location}<br />${startTime} - ${endTime}<br />${name}`;
-      contents = addInstructorsToContents(contents, instructors);
-      contents = addCourseTitleToContents(contents, courseTitle);
+      contents = addInstructorsToContents(contents, instructors, taughtByPhrase);
+      contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
     }
 
     return contents;
