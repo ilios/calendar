@@ -25,7 +25,11 @@
     <ul class="week-day">
       <li class="event-column">
         {{#each day.events as |event|}}
-          {{ilios-calendar-event event=event action='selectEvent' dueThisDay=dueThisDay}}
+          {{#if event.isMulti}}
+            {{ilios-calendar-event event=event action='changeToEventsDayView' dueThisDay=dueThisDay}}
+          {{else}}
+            {{ilios-calendar-event event=event action='selectEvent' dueThisDay=dueThisDay}}
+          {{/if}}
         {{/each}}
       </li>
       {{#each day.hours as |hour|}}

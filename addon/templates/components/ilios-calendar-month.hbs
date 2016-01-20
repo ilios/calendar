@@ -22,7 +22,11 @@
           </span>
           <div class="events">
             {{#each day.events as |event|}}
-              {{ilios-calendar-event-month event=event action='selectEvent' dueThisDay=dueThisDay}}
+              {{#if event.isMulti}}
+                {{ilios-calendar-event-month event=event action='changeToEventsDayView' dueThisDay=dueThisDay}}
+              {{else}}
+                {{ilios-calendar-event-month event=event action='selectEvent' dueThisDay=dueThisDay}}
+              {{/if}}
             {{/each}}
           </div>
         </div>
