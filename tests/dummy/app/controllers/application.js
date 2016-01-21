@@ -51,9 +51,17 @@ export default Controller.extend({
     tomorrowsEvents.name = 'Tomorrows Lecture';
     tomorrowsEvents.startDate = tomorrow.clone();
     tomorrowsEvents.endDate = tomorrow.clone().add(2, 'hour');
-    
     events.pushObject(tomorrowsEvents);
-    
+
+    let smallGroupsStartDate = moment().add(2, 'day').hour(10);
+    let smallGroupsEndDate = moment().add(2, 'day').hour(12);
+    for(let i = 0, n = 2; i < n; i++) {
+      let smallGroupsEvent = this.createUserEventObject();
+      smallGroupsEvent.startDate = smallGroupsStartDate;
+      smallGroupsEvent.endDate = smallGroupsEndDate;
+      events.pushObject(smallGroupsEvent);
+    }
+
     let promise = RSVP.resolve(events);
     return PromiseArray.create({
       promise: promise
