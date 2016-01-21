@@ -12,7 +12,15 @@ export default CalendarEvent.extend({
   event: null,
   timeFormat: 'h:mma',
   isDay: false,
-  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'isDay:day', 'event.eventClass', 'clickable:clickable'],
+  classNameBindings: [
+    ':event',
+    ':event-pos',
+    ':ilios-calendar-event',
+    'isDay:day',
+    'event.eventClass',
+    'clickable:clickable',
+    'isIlm'
+  ],
   taughtByPhrase: 'Taught by',
   courseTitlePhrase: 'Course',
   etAlPhrase: 'et al.',
@@ -62,7 +70,7 @@ export default CalendarEvent.extend({
 
     if (this.get('isIlm')) {
       contents = addLocationToContents(contents, location);
-      contents = contents + `${dueThisDay}<br />${name}`;
+      contents = contents + `ILM - ${dueThisDay}<br />${name}`;
       contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
     } else if (this.get('isOffering')) {

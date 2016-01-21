@@ -55,6 +55,8 @@
   .ilios-calendar .el-calendar .ilios-calendar-event .ilios-calendar-event-location {
     display: inline;
     font-weight: bold; }
+  .ilios-calendar .el-calendar .ilios-calendar-event.is-ilm {
+    border-top: 2px dotted black; }
   .ilios-calendar .el-calendar .ilios-calendar-event.day-event {
     width: 100%; }
   .ilios-calendar .el-calendar .ilios-calendar-event.single-event {
