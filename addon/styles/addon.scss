@@ -158,6 +158,10 @@ $ilios-green: #84c444;
         font-weight: bold;
       }
 
+      &.is-ilm {
+        border-top: 2px dotted black;
+      }
+
       &.day-event {
         width: 100%;
       }
