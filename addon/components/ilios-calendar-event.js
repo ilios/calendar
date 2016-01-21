@@ -70,7 +70,7 @@ export default CalendarEvent.extend({
 
     if (this.get('isIlm')) {
       contents = addLocationToContents(contents, location);
-      contents = contents + `${dueThisDay}<br />${name}`;
+      contents = contents + `ILM - ${dueThisDay}<br />${name}`;
       contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
     } else if (this.get('isOffering')) {
