@@ -12,7 +12,15 @@ export default CalendarEvent.extend({
   event: null,
   timeFormat: 'h:mma',
   isDay: false,
-  classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'isDay:day', 'event.eventClass', 'clickable:clickable'],
+  classNameBindings: [
+    ':event',
+    ':event-pos',
+    ':ilios-calendar-event',
+    'isDay:day',
+    'event.eventClass',
+    'clickable:clickable',
+    'isIlm'
+  ],
   taughtByPhrase: 'Taught by',
   courseTitlePhrase: 'Course',
   etAlPhrase: 'et al.',
