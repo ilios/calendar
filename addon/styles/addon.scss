@@ -600,7 +600,7 @@ $ilios-green: #84c444;
     }
 
   }
-  
+
 }
 
 
@@ -680,14 +680,18 @@ $ilios-green: #84c444;
   border: 1px dotted $ilios-blue;
   margin-top: 1em;
   padding: 1em 0;
-  
+
   h4 {
     font-size: 1.25em;
     font-weight: bold;
     margin-top: 0;
   }
-  
+
   ul {
     margin-left: 1em;
   }
+}
+
+.no-content {
+  list-style-type: none;
 }

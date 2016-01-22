@@ -1,11 +1,19 @@
-<ul class='tree'>
-  {{#each domains as |domain|}}
-    <li>{{domain.title}}
-      <ul>
-        {{#each domain.objectives as |title|}}
-          <li>{{{title}}}</li>
-        {{/each}}
-      </ul>
-    </li>
-  {{/each}}
-</ul>
+{{#if domains.isPending}}
+  {{fa-icon 'spinner' spin=true}}
+{{else}}
+  {{#if domains}}
+    <ul class='tree'>
+      {{#each domains as |domain|}}
+        <li>{{domain.title}}
+          <ul>
+            {{#each domain.objectives as |title|}}
+              <li>{{{title}}}</li>
+            {{/each}}
+          </ul>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <li class="no-content">{{noContentPhrase}}</li>
+  {{/if}}
+{{/if}}
