@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   offeredAtPhrase: null,
   taughtByPhrase: null,
   sessionIsPhrase: null,
-  noContentPhrase: null,
+  noContentPhrase: 'None',
 
   courseObjectivesPhrase: 'Course Objectives',
   courseLearningMaterialsPhrase: 'Course Learning Materials',
