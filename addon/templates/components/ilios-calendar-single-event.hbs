@@ -1,7 +1,9 @@
 <div class='ilios-calendar-single-event-summary'>
   <h1>{{courseTitle}} - <em>{{sessionTitle}}</em></h1>
   <div class='ilios-calendar-single-event-offered-at'>{{offeredAtPhrase}}</div>
-  <div class='ilios-calendar-single-event-instructors'>{{taughtByPhrase}} {{listOfInstructors}}</div>
+  {{#if taughtByPhrase}}
+    <div class='ilios-calendar-single-event-instructors'>{{taughtByPhrase}}</div>
+  {{/if}}
   <div class='ilios-calendar-single-event-session-is'>{{sessionIsPhrase}}</div>
   {{#if description}}{{{description}}}<br />{{/if}}
 </div>
@@ -12,11 +14,14 @@
     {{ilios-calendar-single-event-learningmaterial-list
       learningMaterials=sessionLearningMaterials
       requiredPhrase=requiredPhrase
+      noContentPhrase=noContentPhrase
     }}
   </div>
   <div class='ilios-calendar-single-event-objective-list'>
     <h2>{{sessionObjectivesPhrase}}</h2>
-    {{ilios-calendar-single-event-objective-list objectives=sessionObjectives}}
+    {{ilios-calendar-single-event-objective-list
+      objectives=sessionObjectives
+      noContentPhrase=noContentPhrase}}
   </div>
 </fieldset>
 
@@ -26,10 +31,18 @@
     {{ilios-calendar-single-event-learningmaterial-list
       learningMaterials=courseLearningMaterials
       requiredPhrase=requiredPhrase
+      noContentPhrase=noContentPhrase
     }}
   </div>
   <div class='ilios-calendar-single-event-objective-list'>
     <h2>{{courseObjectivesPhrase}}</h2>
-    {{ilios-calendar-single-event-objective-list objectives=courseObjectives}}
+    {{#if courseObjectives.isFulfilled}}
+    {{ilios-calendar-single-event-objective-list
+      objectives=courseObjectives
+      noContentPhrase=noContentPhrase
+    }}
+    {{else}}
+      {{fa-icon 'spinner' spin=true}}
+    {{/if}}
   </div>
 </fieldset>

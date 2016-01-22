@@ -1,48 +1,76 @@
 .ilios-calendar .ilios-calendar-month .el-calendar .week {
   overflow-y: hidden;
-  padding-top: .25rem; }
+  padding-top: .25rem;
+}
+
 .ilios-calendar .ilios-calendar-month .el-calendar .day {
   border: 1px solid #eee;
   margin-right: .25rem;
   overflow-y: hidden;
-  padding: .25rem; }
-  .ilios-calendar .ilios-calendar-month .el-calendar .day .events {
-    height: 7rem;
-    overflow-y: auto;
-    padding-bottom: 4rem; }
+  padding: .25rem;
+}
+
+.ilios-calendar .ilios-calendar-month .el-calendar .day .events {
+  height: 7rem;
+  overflow-y: auto;
+  padding-bottom: 4rem;
+}
+
 .ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event {
   height: 1.5em;
   padding: 0;
-  position: relative; }
-  .ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event span {
-    background-color: transparent;
-    font-size: .5em;
-    font-weight: normal; }
-  .ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event .ilios-calendar-event-time {
-    color: #000;
-    display: inline; }
-  .ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event .ilios-calendar-event-end,
-  .ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event .ilios-calendar-event-location {
-    display: none; }
+  position: relative;
+}
+
+.ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event span {
+  background-color: transparent;
+  font-size: .5em;
+  font-weight: normal;
+}
+
+.ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event .ilios-calendar-event-time {
+  color: #000;
+  display: inline;
+}
+
+.ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event .ilios-calendar-event-end,
+.ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event .ilios-calendar-event-location {
+  display: none;
+}
+
 .ilios-calendar .ilios-calendar-week .el-calendar span {
-  font-size: .8em; }
+  font-size: .8em;
+}
+
 .ilios-calendar .ilios-calendar-week .el-calendar .ilios-calendar-event .ilios-calendar-event-end,
 .ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event .ilios-calendar-event-end {
-  display: none; }
+  display: none;
+}
+
 .ilios-calendar .ilios-calendar-day .el-calendar .ilios-calendar-event .ilios-calendar-event-location {
-  display: block; }
+  display: block;
+}
+
 .ilios-calendar .ilios-calendar-day .el-calendar .ilios-calendar-event .ilios-calendar-event-instructors {
   display: block;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+}
+
 .ilios-calendar .ilios-calendar-day .el-calendar .ilios-calendar-event .ilios-calendar-event-coursetitle {
   display: block;
   font-size: 0.85em;
-  font-style: italic; }
+  font-style: italic;
+}
+
 .ilios-calendar .el-calendar .event {
   overflow: hidden;
-  position: absolute; }
+  position: absolute;
+}
+
 .ilios-calendar .el-calendar .event-column {
-  border-left: 1px solid #eee; }
+  border-left: 1px solid #eee;
+}
+
 .ilios-calendar .el-calendar .ilios-calendar-event {
   border-bottom: 3px solid #fff;
   color: #000;
@@ -273,103 +301,164 @@
   .ilios-calendar .el-calendar .ilios-calendar-event.workshop {
     background-color: #fe7a78;
     border-left: 4px solid #fd2f2c; }
+
 .ilios-calendar .ilios-calendar-event {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   background-color: #fbfbfb;
-  border: 1px solid #eee; }
+  border: 1px solid #eee;
+}
+
 .ilios-calendar .clickable {
   color: #009ccc;
-  cursor: pointer; }
+  cursor: pointer;
+}
+
 .ilios-calendar .ilios-calendar-calendar {
   clear: both;
-  position: relative; }
-  .ilios-calendar .ilios-calendar-calendar h1 {
-    left: 4em;
-    opacity: 75;
-    position: absolute;
-    top: 2em;
-    transition: all .5s ease-in-out; }
-    .ilios-calendar .ilios-calendar-calendar h1.loaded {
-      opacity: 0; }
+  position: relative;
+}
+
+.ilios-calendar .ilios-calendar-calendar h1 {
+  left: 4em;
+  opacity: 75;
+  position: absolute;
+  top: 2em;
+  transition: all .5s ease-in-out;
+}
+
+.ilios-calendar .ilios-calendar-calendar h1.loaded {
+  opacity: 0;
+}
+
 .ilios-calendar .calendar-view-picker {
-  float: right; }
-  .ilios-calendar .calendar-view-picker .highlight {
-    color: #c60;
-    font-size: 1.25em; }
-  .ilios-calendar .calendar-view-picker .on {
-    color: #84c444; }
+  float: right;
+}
+
+.ilios-calendar .calendar-view-picker .highlight {
+  color: #c60;
+  font-size: 1.25em;
+}
+
+.ilios-calendar .calendar-view-picker .on {
+  color: #84c444;
+}
+
 .ilios-calendar .calendar-time-picker {
-  float: left; }
+  float: left;
+}
+
 .ilios-calendar ul.inline, .ilios-calendar ul.inline li {
   display: inline;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+}
+
 .ilios-calendar ul.inline li {
-  margin-right: 2em; }
+  margin-right: 2em;
+}
+
 .ilios-calendar .ilios-calendar-ics-feed {
   border: 1px dotted #c60;
   margin: auto;
   margin-bottom: 1em;
   padding: 2em;
-  width: 90%; }
-  .ilios-calendar .ilios-calendar-ics-feed input {
-    padding: .25em;
-    width: 80%; }
-  .ilios-calendar .ilios-calendar-ics-feed button {
-    background-color: #fff;
-    color: #009ccc;
-    margin-left: .5em;
-    padding: 0; }
+  width: 90%;
+}
+
+.ilios-calendar .ilios-calendar-ics-feed input {
+  padding: .25em;
+  width: 80%;
+}
+
+.ilios-calendar .ilios-calendar-ics-feed button {
+  background-color: #fff;
+  color: #009ccc;
+  margin-left: .5em;
+  padding: 0;
+}
 
 .ilios-calendar-single-event h2 {
-  font-weight: bold; }
+  font-weight: bold;
+}
+
 .ilios-calendar-single-event fieldset {
   border: 0;
   border-left: 3px solid #eee;
   float: left;
-  width: 45%; }
-  .ilios-calendar-single-event fieldset caption {
-    color: #009ccc;
-    font-weight: bold; }
+  width: 45%;
+}
+
+.ilios-calendar-single-event fieldset caption {
+  color: #009ccc;
+  font-weight: bold;
+}
+
 .ilios-calendar-single-event .ilios-calendar-single-event-summary h1 {
-  font-weight: normal; }
-  .ilios-calendar-single-event .ilios-calendar-single-event-summary h1 em {
-    font-style: normal;
-    font-weight: bold; }
+  font-weight: normal;
+}
+
+.ilios-calendar-single-event .ilios-calendar-single-event-summary h1 em {
+  font-style: normal;
+  font-weight: bold;
+}
+
 .ilios-calendar-single-event .ilios-calendar-single-event-offered-at {
-  font-weight: bold; }
+  font-weight: bold;
+}
+
 .ilios-calendar-single-event .ilios-calendar-single-event-instructors {
-  font-style: italic; }
+  font-style: italic;
+}
+
 .ilios-calendar-single-event .ilios-calendar-single-event-learningmaterial-filesize {
   font-size: .8em;
-  font-style: italic; }
+  font-style: italic;
+}
+
 .ilios-calendar-single-event ul.tree li {
-  font-weight: bold; }
+  font-weight: bold;
+}
+
 .ilios-calendar-single-event ul.tree ul {
   margin-bottom: 1em;
-  margin-left: 1em; }
-  .ilios-calendar-single-event ul.tree ul li {
-    font-weight: normal;
-    list-style-type: disc; }
+  margin-left: 1em;
+}
+
+.ilios-calendar-single-event ul.tree ul li {
+  font-weight: normal;
+  list-style-type: disc;
+}
 
 .ilios-calendar-single-event-learningmaterial-item-notes i {
   display: inline;
   font-size: .85em;
-  margin-right: 5px; }
+  margin-right: 5px;
+}
+
 .ilios-calendar-single-event-learningmaterial-item-notes p {
   display: inline;
   font-size: .85em;
-  font-style: italic; }
+  font-style: italic;
+}
 
 .ilios-calendar-multiday-events {
   border: 1px dotted #009ccc;
   margin-top: 1em;
-  padding: 1em 0; }
-  .ilios-calendar-multiday-events h4 {
-    font-size: 1.25em;
-    font-weight: bold;
-    margin-top: 0; }
-  .ilios-calendar-multiday-events ul {
-    margin-left: 1em; }
+  padding: 1em 0;
+}
+
+.ilios-calendar-multiday-events h4 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.ilios-calendar-multiday-events ul {
+  margin-left: 1em;
+}
+
+.no-content {
+  list-style-type: none;
+}
