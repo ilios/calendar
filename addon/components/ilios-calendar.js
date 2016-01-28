@@ -45,7 +45,6 @@ export default Component.extend({
           let arr = hashedEvents[hash];
           let event = arr[0];
           if(arr.length > 1){
-            event.location = 'mult.';
             event.isMulti = true;
           }
           compiledEvents.pushObject(event);

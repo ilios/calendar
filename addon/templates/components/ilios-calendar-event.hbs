@@ -19,13 +19,15 @@
     {{/if}}
     
   </span>
-  <span class='ilios-calendar-event-location'>
-    {{#if event.location.length}}
-      {{event.location}}:
-    {{/if}}
-  </span>
+  {{#unless event.isMulti}}
+    <span class='ilios-calendar-event-location'>
+      {{#if event.location.length}}
+        {{event.location}}:
+      {{/if}}
+    </span>
+  {{/unless}}
   <span class='ilios-calendar-event-name'>
-    {{event.name}}
+    {{event.name}}{{#if event.isMulti}}, <em>{{multiplePhrase}}</em>{{/if}}
   </span>
   {{! list instructors in day view, if available }}
   {{#if isDay}}

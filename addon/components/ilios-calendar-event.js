@@ -23,6 +23,7 @@ export default CalendarEvent.extend({
   ],
   taughtByPhrase: 'Taught by',
   courseTitlePhrase: 'Course',
+  multiplePhrase: 'Multiple',
   etAlPhrase: 'et al.',
   tooltipContent: computed('event', function() {
     if (this.get('event') == null) {
@@ -63,21 +64,37 @@ export default CalendarEvent.extend({
     const dueThisDay = this.get('dueThisDay');
     const instructors = this.get('event.instructors') || [];
     const courseTitle = this.get('event.courseTitle');
+    const isMulti = this.get('event.isMulti');
     const taughtByPhrase = this.get('taughtByPhrase');
+    const multiplePhrase = this.get('multiplePhrase');
     const courseTitlePhrase = this.get('courseTitlePhrase');
     const etAlPhrase = this.get('etAlPhrase');
     let contents = '';
 
     if (this.get('isIlm')) {
-      contents = addLocationToContents(contents, location);
+      if (! isMulti) {
+        contents = addLocationToContents(contents, location);
+      }
       contents = contents + `ILM - ${dueThisDay}<br />${name}`;
-      contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
+      if (! isMulti) {
+        contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
+      }
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
+      if (isMulti) {
+        contents = contents + `<br />, ${multiplePhrase}`;
+      }
     } else if (this.get('isOffering')) {
-      contents = addLocationToContents(contents, location);
+      if (! isMulti) {
+        contents = addLocationToContents(contents, location);
+      }
       contents = contents + `${startTime} - ${endTime}<br />${name}`;
-      contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
+      if (! isMulti) {
+        contents = addInstructorsToContents(contents, instructors, taughtByPhrase, etAlPhrase);
+      }
       contents = addCourseTitleToContents(contents, courseTitle, courseTitlePhrase);
+      if (isMulti) {
+        contents = contents + `<br />, ${multiplePhrase}`;
+      }
     } else { // 'TBD' event
       contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
     }

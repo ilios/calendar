@@ -11,26 +11,46 @@ export default CalendarEvent.extend({
   layout,
   event: null,
   timeFormat: 'h:mma',
+  multiplePhrase: 'Multiple',
   classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':month-event', 'clickable:clickable'],
   tooltipContent: computed('event', function() {
+
+    let addLocationToContents = function(contents, location) {
+      if (! isBlank(location)) {
+        contents = contents + `${location}<br />`;
+      }
+      return contents;
+    };
+
     const location = this.get('event.location');
     const name = this.get('event.name');
+    const isMulti = this.get('event.isMulti');
     const startTime = moment(this.get('event.startDate')).format(this.get('timeFormat'));
     const endTime = moment(this.get('event.endDate')).format(this.get('timeFormat'));
+    const multiplePhrase = this.get('multiplePhrase');
     const dueThisDay = this.get('dueThisDay');
-    const isILM = this.get('event.ilmSession');
+    let contents = '';
 
-    if (isILM) {
-      if (location) {
-        return `${location}<br />${dueThisDay}<br />${name}`;
-      } else {
-        return `${dueThisDay}<br />${name}`;
+    if (this.get('isIlm')) {
+      if (! isMulti) {
+        contents = addLocationToContents(contents, location);
       }
-    } else if (isBlank(location)) {
-      return `TBD<br />${startTime} - ${endTime}<br />${name}`;
+      contents = contents + `${dueThisDay}<br />${name}`;
+      if (isMulti) {
+        contents = contents + `<br />, ${multiplePhrase}`;
+      }
+    } else if (this.get('isOffering')) {
+      if (! isMulti) {
+        contents = addLocationToContents(contents, location);
+      }
+      contents = contents + `${startTime} - ${endTime}<br />${name}`;
+      if (isMulti) {
+        contents = contents + `<br />, ${multiplePhrase}`;
+      }
     } else {
-      return `${location}<br />${startTime} - ${endTime}<br />${name}`;
+      contents = `TBD<br />${startTime} - ${endTime}<br />${name}`;
     }
+    return contents;
   }),
   style: computed(function() {
     return new SafeString('');
