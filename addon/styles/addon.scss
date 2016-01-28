@@ -68,7 +68,7 @@ $ilios-green: #84c444;
 
       .ilios-calendar-event.month-event {
         height: 1.5em;
-        padding: 0;
+        padding: 0 8px 0 0;
         position: relative;
 
         span {
@@ -694,4 +694,15 @@ $ilios-green: #84c444;
 
 .no-content {
   list-style-type: none;
+}
+
+.recently-updated-icon {
+  color: #e50000;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+
+.recently-updated-icon-event {
+  color: #e50000;
 }

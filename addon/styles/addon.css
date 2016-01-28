@@ -18,7 +18,7 @@
 
 .ilios-calendar .ilios-calendar-month .el-calendar .ilios-calendar-event.month-event {
   height: 1.5em;
-  padding: 0;
+  padding: 0 8px 0 0;
   position: relative;
 }
 
@@ -461,4 +461,15 @@
 
 .no-content {
   list-style-type: none;
+}
+
+.recently-updated-icon {
+  color: #e50000;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+
+.recently-updated-icon-event {
+  color: #e50000;
 }

@@ -1,7 +1,10 @@
 import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar-single-event';
+import moment from 'moment';
 
-export default Ember.Component.extend({
+const { Component, computed } = Ember;
+
+export default Component.extend({
   layout,
   classNames: ['ilios-calendar', 'ilios-calendar-single-event'],
 
@@ -23,5 +26,17 @@ export default Ember.Component.extend({
   sessionLearningMaterials: null,
   sessionObjectives: null,
 
-  requiredPhrase: 'Required'
+  requiredPhrase: 'Required',
+
+  daysToShowAlert: null,
+
+  recentlyUpdated: computed('lastModified', {
+    get() {
+      const lastModifiedDate = moment(this.get('lastModified'));
+      const today = moment();
+      const daysSinceLastUpdate = today.diff(lastModifiedDate, 'days');
+
+      return daysSinceLastUpdate < 6 ? true : false;
+    }
+  }).readOnly(),
 });
