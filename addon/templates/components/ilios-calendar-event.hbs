@@ -1,4 +1,9 @@
 {{#if event}}
+  {{#unless isMonth}}
+      {{#if event.isScheduled}}
+        {{fa-icon 'files-o'}}
+      {{/if}}
+  {{/unless}}
   <span class='ilios-calendar-event-time'>
     {{#if isIlm}}
       <span class='ilios-calendar-event-start'>
