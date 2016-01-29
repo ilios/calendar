@@ -7,10 +7,12 @@
       - {{moment-format event.endDate 'h:mma'}}
     </span>
   </span>
-  <span class='ilios-calendar-event-location'>
-    {{event.location}}:
-  </span>
+  {{#unless event.isMulti }}
+    <span class='ilios-calendar-event-location'>
+      {{event.location}}:
+    </span>
+  {{/unless}}
   <span class='ilios-calendar-event-name'>
-    {{event.name}}
+    {{event.name}}{{#if event.isMulti}}, <em>{{multiplePhrase}}</em>{{/if}}
   </span>
 {{/if}}

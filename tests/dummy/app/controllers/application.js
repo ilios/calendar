@@ -26,12 +26,12 @@ export default Controller.extend({
     todaysEvent.instructors = ['Tweedledee', 'Tweedledum'];
     todaysEvent.courseTitle = 'Lorem Ipsum';
     events.pushObject(todaysEvent);
-    
+
     let todaysDoubleEvent = this.createUserEventObject();
     todaysDoubleEvent.name = 'Some new thing again';
     todaysDoubleEvent.startDate = today.clone();
     todaysDoubleEvent.endDate = today.clone().add(1, 'hour');
-    
+
     events.pushObject(todaysDoubleEvent);
 
     let anotherEvent = this.createUserEventObject();
@@ -39,13 +39,13 @@ export default Controller.extend({
     anotherEvent.startDate = today.clone().add(2, 'hour');
     anotherEvent.endDate = today.clone().add(3, 'hour');
     events.pushObject(anotherEvent);
-    
+
     let multiDayEvent = this.createUserEventObject();
     multiDayEvent.name = 'Multiday Event';
     multiDayEvent.startDate = today.clone();
     multiDayEvent.endDate = today.clone().add(3, 'day');
     events.pushObject(multiDayEvent);
-    
+
     let tomorrow = moment().add(1, 'day').hour(8);
     let tomorrowsEvents = this.createUserEventObject();
     tomorrowsEvents.name = 'Tomorrows Lecture';
@@ -58,6 +58,7 @@ export default Controller.extend({
     for(let i = 0, n = 2; i < n; i++) {
       let smallGroupsEvent = this.createUserEventObject();
       smallGroupsEvent.startDate = smallGroupsStartDate;
+      smallGroupsEvent.name = 'Small Groups Session';
       smallGroupsEvent.endDate = smallGroupsEndDate;
       events.pushObject(smallGroupsEvent);
     }
@@ -111,7 +112,7 @@ export default Controller.extend({
           {title: 'slides', url: 'http://#', type: 'citation'},
         ]
       };
-      
+
       this.set('fakeSingleEvent', fakeEvent);
     },
     refreshIcsFeed(){
