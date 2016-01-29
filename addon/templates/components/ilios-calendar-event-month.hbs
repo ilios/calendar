@@ -1,4 +1,8 @@
 {{#if event}}
+  {{#if recentlyUpdated}}
+    {{fa-icon 'exclamation' class="recently-updated-icon"}}
+  {{/if}}
+
   <span class='ilios-calendar-event-time'>
     <span class='ilios-calendar-event-start'>
       {{moment-format event.startDate 'h:mma'}}

@@ -29,7 +29,7 @@ export default Component.extend({
         defer.resolve(Ember.A(events));
       } else {
         let hashedEvents = {};
-        
+
         events.forEach(event => {
           let hash = moment(event.startDate).format() +
                      moment(event.endDate).format() +
@@ -48,13 +48,13 @@ export default Component.extend({
             event.isMulti = true;
           }
           compiledEvents.pushObject(event);
-          
+
         }
-        
+
         defer.resolve(compiledEvents);
       }
     });
-    
+
     return PromiseArray.create({
       promise: defer.promise
     });

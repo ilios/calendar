@@ -1,9 +1,14 @@
 {{#if event}}
+  {{#if recentlyUpdated}}
+    {{fa-icon 'exclamation-circle' class="recently-updated-icon"}}
+  {{/if}}
+
   {{#unless isMonth}}
       {{#if event.isScheduled}}
         {{fa-icon 'files-o'}}
       {{/if}}
   {{/unless}}
+
   <span class='ilios-calendar-event-time'>
     {{#if isIlm}}
       <span class='ilios-calendar-event-start'>
@@ -17,8 +22,8 @@
         - {{moment-format event.endDate 'h:mma'}}
       </span>
     {{/if}}
-    
   </span>
+
   {{#unless event.isMulti}}
     <span class='ilios-calendar-event-location'>
       {{#if event.location.length}}
@@ -26,6 +31,7 @@
       {{/if}}
     </span>
   {{/unless}}
+
   <span class='ilios-calendar-event-name'>
     {{event.name}}{{#if event.isMulti}}, <em>{{multiplePhrase}}</em>{{/if}}
   </span>

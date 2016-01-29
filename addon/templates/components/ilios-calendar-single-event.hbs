@@ -1,5 +1,10 @@
 <div class='ilios-calendar-single-event-summary'>
-  <h1>{{courseTitle}} - <em>{{sessionTitle}}</em></h1>
+  <h1>
+    {{#if recentlyUpdated}}
+      {{fa-icon 'exclamation-circle' class="recently-updated-icon-event"}}
+    {{/if}}
+    {{courseTitle}} - <em>{{sessionTitle}}</em>
+  </h1>
   <div class='ilios-calendar-single-event-offered-at'>{{offeredAtPhrase}}</div>
   {{#if taughtByPhrase}}
     <div class='ilios-calendar-single-event-instructors'>{{taughtByPhrase}}</div>
