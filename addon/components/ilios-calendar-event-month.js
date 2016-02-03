@@ -5,7 +5,7 @@ import moment from 'moment';
 
 const { computed, Handlebars, isBlank } = Ember;
 const { SafeString } = Handlebars;
-const { notEmpty, any } = computed;
+const { notEmpty, or } = computed;
 
 export default CalendarEvent.extend({
   layout,
@@ -57,7 +57,7 @@ export default CalendarEvent.extend({
   }),
   isIlm: notEmpty('event.ilmSession'),
   isOffering: notEmpty('event.offering'),
-  clickable: any('isIlm', 'isOffering'),
+  clickable: or('isIlm', 'isOffering'),
 
   daysToShowAlert: null,
 
