@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar-multiday-event';
 
-const { notEmpty, any } = Ember.computed;
+const { notEmpty, or } = Ember.computed;
 
 export default Ember.Component.extend({
   layout: layout,
@@ -9,8 +9,8 @@ export default Ember.Component.extend({
   event: null,
   isIlm: notEmpty('event.ilmSession'),
   isOffering: notEmpty('event.offering'),
-  clickable: any('isIlm', 'isOffering'),
-  
+  clickable: or('isIlm', 'isOffering'),
+
   actions: {
     selectEvent(event){
       if(this.get('clickable')){
