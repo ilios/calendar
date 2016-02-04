@@ -50,6 +50,8 @@ export default Ember.Component.extend({
         }
       }
       lm.icon = icon;
+
+      return lm;
     });
     return Ember.A(learningMaterials);
   })
