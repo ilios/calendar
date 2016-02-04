@@ -26,9 +26,9 @@ export default Ember.Component.extend({
   proxiedLearningMaterials: computed('learningMaterials.[]', function(){
     let learningMaterials = this.get('learningMaterials');
     if(isEmpty(learningMaterials)){
-      return [];
+      return Ember.A([]);
     }
-    return learningMaterials.map(lm => {
+    learningMaterials = learningMaterials.map(lm => {
       let icon;
       if(lm.type === 'link'){
         icon = 'fa-link';
@@ -50,8 +50,7 @@ export default Ember.Component.extend({
         }
       }
       lm.icon = icon;
-      
-      return lm;
     });
+    return Ember.A(learningMaterials);
   })
 });
