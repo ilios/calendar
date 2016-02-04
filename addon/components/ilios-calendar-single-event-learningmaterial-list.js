@@ -7,12 +7,28 @@ export default Ember.Component.extend({
   layout: layout,
   learningMaterials: [],
   requiredPhrase: null,
+  sortedLearningMaterials: computed.sort('proxiedLearningMaterials', function(a, b){
+    // sort order:
+    // 1. required LMs before not required
+    // 2. by title, alphabetically ascending
+    if (a.required === b.required) {
+      if (a.title > b.title) {
+        return 1;
+      } else if (a.title < b.title) {
+        return -1;
+      }
+      return 0;
+    } else if (a.required) {
+      return -1;
+    }
+    return 1;
+  }),
   proxiedLearningMaterials: computed('learningMaterials.[]', function(){
     let learningMaterials = this.get('learningMaterials');
     if(isEmpty(learningMaterials)){
-      return [];
+      return Ember.A([]);
     }
-    return learningMaterials.map(lm => {
+    learningMaterials = learningMaterials.map(lm => {
       let icon;
       if(lm.type === 'link'){
         icon = 'fa-link';
@@ -34,8 +50,7 @@ export default Ember.Component.extend({
         }
       }
       lm.icon = icon;
-      
-      return lm;
     });
+    return Ember.A(learningMaterials);
   })
 });

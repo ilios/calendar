@@ -1,9 +1,9 @@
 {{#if learningMaterials.isPending}}
   {{fa-icon 'spinner' spin=true}}
 {{else}}
-  {{#if proxiedLearningMaterials}}
+  {{#if sortedLearningMaterials}}
     <ul class='static-list fa-ul'>
-      {{#each proxiedLearningMaterials as |lm|}}
+      {{#each sortedLearningMaterials as |lm|}}
         <li class='ilios-calendar-single-event-learningmaterial-item'>
           {{fa-icon lm.icon listItem=true}}
 
