@@ -21,6 +21,8 @@ $ilios-orange: #c60;
 
 $ilios-green: #84c444;
 
+$updated-color: #945c58;
+
 @mixin border-top-radius($radii) {
   border-top-left-radius: $radii;
   border-top-right-radius: $radii;
@@ -697,12 +699,12 @@ $ilios-green: #84c444;
 }
 
 .recently-updated-icon {
-  color: #e50000;
+  color: $updated-color;
   position: absolute;
   right: 2px;
   top: 2px;
 }
 
 .recently-updated-icon-event {
-  color: #e50000;
+  color: $updated-color;
 }
