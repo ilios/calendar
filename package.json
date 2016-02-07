@@ -13,7 +13,8 @@
   },
   "repository": "https://github.com/ilios/calendar",
   "engines": {
-    "node": ">= 0.12.0"
+    "node": "^5.1",
+    "npm": "^3.3"
   },
   "author": "",
   "license": "MIT",
