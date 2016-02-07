@@ -15,6 +15,7 @@ Provides the ilios calendar addon to other ember applications including our fron
 
 ## Running Tests
 
+* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
