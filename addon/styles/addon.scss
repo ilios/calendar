@@ -1,6 +1,7 @@
 // An issue with ember-cli-saas prevents easily using sass in an addon
 // This is the raw scss file, it needs to be compiled elsewhere and then
 // saved to addon.css
+@import 'bower_components/font-awesome/scss/font-awesome';
 
 $white: #fff;
 $black: #000;
