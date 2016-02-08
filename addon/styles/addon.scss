@@ -1,6 +1,4 @@
-// An issue with ember-cli-saas prevents easily using sass in an addon
-// This is the raw scss file, it needs to be compiled elsewhere and then
-// saved to addon.css
+@import 'bower_components/font-awesome/scss/font-awesome';
 
 $white: #fff;
 $black: #000;
@@ -117,13 +115,15 @@ $updated-color: #945c58;
         .ilios-calendar-event-location {
           display: block;
         }
+
         .ilios-calendar-event-instructors {
           display: block;
-          font-size: 0.9em;
+          font-size: .9em;
         }
+
         .ilios-calendar-event-coursetitle {
           display: block;
-          font-size: 0.85em;
+          font-size: .85em;
           font-style: italic;
         }
       }
@@ -161,7 +161,7 @@ $updated-color: #945c58;
       }
 
       &.is-ilm {
-        border-top: 2px dotted black;
+        border-top: 2px dotted $black;
       }
 
       &.day-event {
@@ -647,7 +647,7 @@ $updated-color: #945c58;
     font-style: italic;
   }
 
-  ul.tree {
+  .tree {
     li {
       font-weight: bold;
     }
