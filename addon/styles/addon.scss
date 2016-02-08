@@ -117,13 +117,15 @@ $updated-color: #945c58;
         .ilios-calendar-event-location {
           display: block;
         }
+
         .ilios-calendar-event-instructors {
           display: block;
-          font-size: 0.9em;
+          font-size: .9em;
         }
+
         .ilios-calendar-event-coursetitle {
           display: block;
-          font-size: 0.85em;
+          font-size: .85em;
           font-style: italic;
         }
       }
@@ -161,7 +163,7 @@ $updated-color: #945c58;
       }
 
       &.is-ilm {
-        border-top: 2px dotted black;
+        border-top: 2px dotted $black;
       }
 
       &.day-event {
@@ -647,7 +649,7 @@ $updated-color: #945c58;
     font-style: italic;
   }
 
-  ul.tree {
+  .tree {
     li {
       font-weight: bold;
     }
