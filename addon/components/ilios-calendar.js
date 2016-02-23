@@ -5,6 +5,7 @@ import moment from 'moment';
 
 const { Component, computed, RSVP, copy } = Ember;
 const { PromiseArray } = DS;
+const { sort } = computed;
 
 export default Component.extend({
   layout,
@@ -58,6 +59,24 @@ export default Component.extend({
     return PromiseArray.create({
       promise: defer.promise
     });
+  }),
+  sortedCalendarEvents: sort('compiledCalendarEvents', function(a, b){
+    let startDiff = moment(a.startDate).diff(moment(b.startDate));
+    if (startDiff !== 0) {
+      return startDiff;
+    }
+
+    let durrationA = moment(a.startDate).diff(moment(a.endDate));
+    let durrationB = moment(b.startDate).diff(moment(b.endDate));
+
+    let durationDiff = durrationA - durrationB;
+
+    if (durationDiff !== 0) {
+      return durationDiff;
+    }
+
+    return a.title - b.title;
+
   }),
   actions: {
     changeView(newView){

@@ -63,6 +63,15 @@ export default Controller.extend({
       events.pushObject(smallGroupsEvent);
     }
 
+    let sortedMonthStartDate = moment().add(7, 'day').hour(10);
+    for(let i = 5; i > 0; i--) {
+      let thisEvent = this.createUserEventObject();
+      thisEvent.startDate = sortedMonthStartDate.clone().add(i, 'minutes');
+      thisEvent.name = 'Session: ' + i;
+      thisEvent.endDate = thisEvent.startDate.clone().add(1, 'hour');
+      events.pushObject(thisEvent);
+    }
+
     let promise = RSVP.resolve(events);
     return PromiseArray.create({
       promise: promise
