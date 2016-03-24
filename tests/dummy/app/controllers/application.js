@@ -103,6 +103,7 @@ export default Controller.extend({
         courseTitle: 'Fake Event',
         sessionTitle: 'Fake Event',
         offeredAtPhrase: 'On ' + moment(event.startDate).format('dddd, MMMM Do YYYY, h:mm a'),
+        location: event.location,
         taughtByPhrase: 'Taught By Barry Bods, Neil deGrasse Tyson',
         sessionIs: 'Session is "lecture"',
         courseObjectives: [

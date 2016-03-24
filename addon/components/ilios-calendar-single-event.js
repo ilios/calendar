@@ -12,6 +12,7 @@ export default Component.extend({
   sessionTitle: null,
   description: null,
   offeredAtPhrase: null,
+  location: null,
   taughtByPhrase: null,
   sessionIsPhrase: null,
   noContentPhrase: 'None',
