@@ -68,3 +68,12 @@ test('taughtBy does not display', function(assert) {
 
   assert.ok(isEmpty(this.$('.ilios-calendar-single-event-instructors')));
 });
+
+test('setting location changes display', function(assert) {
+  assert.expect(1);
+  this.render(hbs`{{ilios-calendar-single-event location='Room 1b'
+    courseObjectives=courseObjectives
+    sessionObjectives=sessionObjectives
+  }}`);
+  assert.notEqual(this.$().text().trim().search(/Room 1b/), -1);
+});
