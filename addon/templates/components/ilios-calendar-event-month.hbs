@@ -1,4 +1,7 @@
 {{#if event}}
+  {{#tooltip-on-component}}
+    {{{tooltipContent}}}
+  {{/tooltip-on-component}}
   {{#if recentlyUpdated}}
     {{fa-icon 'exclamation' class="recently-updated-icon"}}
   {{/if}}
