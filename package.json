@@ -9,12 +9,12 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "eslint . && ember try:each"
   },
   "repository": "https://github.com/ilios/calendar",
   "engines": {
-    "node": "^5.1",
-    "npm": "^3.3"
+    "node": "^6",
+    "npm": "^3.10"
   },
   "author": "",
   "license": "MIT",
@@ -26,10 +26,10 @@
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-clipboard": "0.4.1",
     "ember-cli-dependency-checker": "^1.2.0",
+    "ember-cli-eslint": "3.0.0",
     "ember-cli-htmlbars-inline-precompile": "^0.3.5",
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-moment-shim": "2.2.0",
-    "ember-cli-jshint": "^2.0.1",
     "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^0.2.9",
     "ember-cli-sri": "^2.1.1",
@@ -46,6 +46,7 @@
     "ember-tether": "0.3.1",
     "ember-tooltips": "2.3.1",
     "ember-truth-helpers": "1.2.0",
+    "eslint": "^3.3.0",
     "loader.js": "^4.0.1"
   },
   "keywords": [
