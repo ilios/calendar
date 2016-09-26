@@ -8,8 +8,11 @@
     {{/if}}
 
     {{#unless isMonth}}
-        {{#if event.isScheduled}}
+        {{#unless event.isPublished}}
           {{fa-icon 'files-o'}}
+        {{/unless}}
+        {{#if (and event.isScheduled event.isPublished)}}
+          {{fa-icon 'clock-o'}}
         {{/if}}
     {{/unless}}
 
