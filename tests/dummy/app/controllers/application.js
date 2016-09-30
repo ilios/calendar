@@ -38,6 +38,7 @@ export default Controller.extend({
     anotherEvent.name = 'Sweet Lecture';
     anotherEvent.startDate = today.clone().add(2, 'hour');
     anotherEvent.endDate = today.clone().add(3, 'hour');
+    anotherEvent.isScheduled = true;
     events.pushObject(anotherEvent);
 
     let multiDayEvent = this.createUserEventObject();
@@ -47,11 +48,12 @@ export default Controller.extend({
     events.pushObject(multiDayEvent);
 
     let tomorrow = moment().add(1, 'day').hour(8);
-    let tomorrowsEvents = this.createUserEventObject();
-    tomorrowsEvents.name = 'Tomorrows Lecture';
-    tomorrowsEvents.startDate = tomorrow.clone();
-    tomorrowsEvents.endDate = tomorrow.clone().add(2, 'hour');
-    events.pushObject(tomorrowsEvents);
+    let tomorrowsEvent = this.createUserEventObject();
+    tomorrowsEvent.name = 'Tomorrows Lecture';
+    tomorrowsEvent.startDate = tomorrow.clone();
+    tomorrowsEvent.endDate = tomorrow.clone().add(2, 'hour');
+    tomorrowsEvent.isPublished = false;
+    events.pushObject(tomorrowsEvent);
 
     let smallGroupsStartDate = moment().add(2, 'day').hour(10);
     let smallGroupsEndDate = moment().add(2, 'day').hour(12);
