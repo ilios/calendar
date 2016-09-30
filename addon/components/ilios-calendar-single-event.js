@@ -27,6 +27,12 @@ export default Component.extend({
   sessionLearningMaterials: null,
   sessionObjectives: null,
 
+  attireRequired: false,
+  attireRequiredPhrase: 'Special attire is <strong><em>required</em></strong>',
+
+  equipmentRequired: false,
+  equipmentRequiredPhras: 'Special equipment is <strong><em>required</em></strong>',
+
   requiredPhrase: 'Required',
 
   daysToShowAlert: null,
