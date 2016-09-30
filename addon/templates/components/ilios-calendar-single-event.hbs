@@ -11,6 +11,14 @@
     <div class='ilios-calendar-single-event-instructors'>{{taughtByPhrase}}</div>
   {{/if}}
   <div class='ilios-calendar-single-event-session-is'>{{sessionIsPhrase}}</div>
+  {{#if equipmentRequired}}
+    <div class='ilios-calendar-single-event-equipment-required'>
+      {{{equipmentRequiredPhrase}}} {{fa-icon 'fa-flask'}}</div>
+  {{/if}}
+  {{#if attireRequired}}
+    <div class='ilios-calendar-single-event-attire-required'>
+      {{{attireRequiredPhrase}}} {{fa-icon 'fa-black-tie'}}</div>
+  {{/if}}
   {{#if description}}{{{description}}}<br />{{/if}}
 </div>
 
