@@ -26,6 +26,7 @@ export default CalendarEvent.extend(TooltipContent, {
   courseTitlePhrase: 'Course',
   multiplePhrase: 'Multiple',
   etAlPhrase: 'et al.',
+  ilmDuePhrase: 'ILM - Due',
 
   isIlm: notEmpty('event.ilmSession'),
   isOffering: notEmpty('event.offering'),

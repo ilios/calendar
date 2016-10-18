@@ -8,18 +8,18 @@
     {{/if}}
 
     {{#unless isMonth}}
-        {{#unless event.isPublished}}
-          {{fa-icon 'files-o'}}
-        {{/unless}}
-        {{#if (and event.isScheduled event.isPublished)}}
-          {{fa-icon 'clock-o'}}
-        {{/if}}
+      {{#unless event.isPublished}}
+        {{fa-icon 'files-o'}}
+      {{/unless}}
+      {{#if (and event.isScheduled event.isPublished)}}
+        {{fa-icon 'clock-o'}}
+      {{/if}}
     {{/unless}}
 
     <span class='ilios-calendar-event-time'>
       {{#if isIlm}}
         <span class='ilios-calendar-event-start'>
-          ILM - Due: {{moment-format event.startDate 'h:mma'}}
+          {{ilmDuePhrase}}: {{moment-format event.startDate 'h:mma'}}
         </span>
       {{else}}
         <span class='ilios-calendar-event-start'>

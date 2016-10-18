@@ -11,7 +11,11 @@
             {{#if lm.required}}
               {{fa-icon 'star' title=requiredPhrase}}
             {{/if}}
-            {{#if lm.url}}<a target='_blank' href='{{lm.url}}'>{{lm.title}}</a>{{else}}{{lm.title}}{{/if}}
+            {{#if lm.url}}
+              <a target='_blank' href='{{lm.url}}' rel='noopener'>{{lm.title}}</a>
+            {{else}}
+              {{lm.title}}
+            {{/if}}
             <span class='ilios-calendar-single-event-learningmaterial-filesize'>
               {{#if lm.filesize}} ({{filesize lm.filesize}}){{/if}}
             </span>

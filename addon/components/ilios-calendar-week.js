@@ -9,6 +9,7 @@ export default Component.extend({
   layout: layout,
   date: null,
   calendarEvents: [],
+  weekOfPhrase: 'Week of',
   weekOf: computed('date', function(){
     return moment(this.get('date')).startOf('week').format('MMMM Do YYYY');
   }),

@@ -4,7 +4,8 @@
   {{#if domains}}
     <ul class='tree'>
       {{#each domains as |domain|}}
-        <li>{{domain.title}}
+        <li>
+          {{domain.title}}
           <ul>
             {{#each domain.objectives as |title|}}
               <li>{{{title}}}</li>
