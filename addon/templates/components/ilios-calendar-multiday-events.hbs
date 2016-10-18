@@ -1,6 +1,6 @@
 {{#if events.length}}
   <div class='ilios-calendar-multiday-events'>
-  <h4>{{multidayEvents}}</h4>
+    <h4>{{multidayEvents}}</h4>
     <ul>
       {{#each events as |event|}}
         {{ilios-calendar-multiday-event action='selectEvent' event=event}}

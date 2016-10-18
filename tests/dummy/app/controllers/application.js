@@ -6,6 +6,7 @@ const { RSVP, Controller, computed, A} = Ember;
 const { PromiseArray } = DS;
 
 export default Controller.extend({
+  applicationTitlePhrase: 'Demo of ilios-calendar',
   selectedDate: new Date(),
   selectedView: 'week',
   fakeSingleEvent: false,
