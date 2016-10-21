@@ -1,4 +1,6 @@
 /*eslint-env node*/
+'use strict';
+
 module.exports = {
   isDevelopingAddon: function() {
     return false;
