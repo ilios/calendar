@@ -1,12 +1,5 @@
 /*eslint-env node*/
 module.exports = {
-  scenarios: [
-    {
-      name: 'default',
-      bower: {
-        dependencies: { }
-      }
-    },
     {
       name: 'ember-1.13',
       bower: {
@@ -15,6 +8,17 @@ module.exports = {
         },
         resolutions: {
           'ember': '~1.13.0'
+        }
+      }
+    },
+    {
+      name: 'ember-lts-2.4',
+      bower: {
+        dependencies: {
+          'ember': 'components/ember#lts-2-4'
+        },
+        resolutions: {
+          'ember': 'lts-2-4'
         }
       }
     },
