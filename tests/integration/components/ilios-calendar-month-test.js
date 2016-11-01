@@ -1,19 +1,69 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import moment from 'moment';
 
 moduleForComponent('ilios-calendar-month', 'Integration | Component | ilios calendar month', {
   integration: true
 });
 
-test('month displays', function(assert) {
-  assert.expect(2);
-  let date = new Date('2015-09-30T12:00:00');
-  this.set('date', date);
+test('month displays with three events', function(assert) {
+  assert.expect(4);
+  let date = moment(new Date('2015-09-30T12:00:00'));
 
-  this.render(hbs`{{ilios-calendar-month date=date}}`);
+  this.set('date', date.toDate());
+
+  let firstEvent = createUserEventObject();
+  firstEvent.name = 'Some new thing';
+  firstEvent.startDate = date.clone();
+  firstEvent.endDate = date.clone().add(1, 'hour');
+
+  let secondEvent = createUserEventObject();
+  secondEvent.name = 'Second new thing';
+  secondEvent.startDate = date.clone().add(1, 'hour');
+  secondEvent.endDate = date.clone().add(3, 'hour');
+
+  let thirdEvent = createUserEventObject();
+  thirdEvent.name = 'Third new thing';
+  thirdEvent.startDate = date.clone().add(3, 'hour');
+  thirdEvent.endDate = date.clone().add(4, 'hour');
+
+  this.set('events', [firstEvent, secondEvent, thirdEvent]);
+  const events = '.event';
+  const more = '.month-more-events';
+
+  this.render(hbs`{{ilios-calendar-month date=date calendarEvents=events showMore='Show More'}}`);
   //Date input is Wednesday, Septrmber 30th.  Should be the first string
   assert.equal(this.$().text().trim().search(/^September 2015/), 0);
-  assert.equal(this.$('.event').length, 0);
+  assert.equal(this.$(events).length, 2);
+  assert.equal(this.$(more).length, 1);
+  assert.equal(this.$(more).text().trim(), 'Show More');
+});
+
+test('month displays with two events', function(assert) {
+  assert.expect(3);
+  let date = moment(new Date('2015-09-30T12:00:00'));
+
+  this.set('date', date.toDate());
+
+  let firstEvent = createUserEventObject();
+  firstEvent.name = 'Some new thing';
+  firstEvent.startDate = date.clone();
+  firstEvent.endDate = date.clone().add(1, 'hour');
+
+  let secondEvent = createUserEventObject();
+  secondEvent.name = 'Second new thing';
+  secondEvent.startDate = date.clone().add(1, 'hour');
+  secondEvent.endDate = date.clone().add(3, 'hour');
+
+  this.set('events', [firstEvent, secondEvent]);
+  const events = '.event';
+  const more = '.month-more-events';
+
+  this.render(hbs`{{ilios-calendar-month date=date calendarEvents=events showMore='Show More'}}`);
+  //Date input is Wednesday, Septrmber 30th.  Should be the first string
+  assert.equal(this.$().text().trim().search(/^September 2015/), 0);
+  assert.equal(this.$(events).length, 2);
+  assert.equal(this.$(more).length, 0);
 });
 
 test('clicking on a day fires the correct event', function(assert) {
@@ -25,6 +75,7 @@ test('clicking on a day fires the correct event', function(assert) {
     date=date
     changeDate='changeDate'
     changeView='changeView'
+    calendarEvents=events
   }}`);
   this.on('changeDate', newDate => {
     assert.ok(newDate instanceof Date);
@@ -35,3 +86,18 @@ test('clicking on a day fires the correct event', function(assert) {
   });
   this.$('.day .clickable').eq(0).click();
 });
+
+let createUserEventObject = function(){
+  return {
+    user: 1,
+    name: '',
+    offering: 1,
+    startDate: null,
+    endDate: null,
+    eventClass: 'peer-teaching',
+    location: 'Rm. 160',
+    lastModified: new Date(),
+    isPublished: true,
+    isScheduled: false
+  };
+};
