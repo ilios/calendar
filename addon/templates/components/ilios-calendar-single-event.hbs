@@ -52,10 +52,6 @@
   </div>
   <div class='ilios-calendar-single-event-objective-list'>
     <h2>{{courseObjectivesPhrase}}</h2>
-    {{#if courseObjectives.isFulfilled}}
-      {{ilios-calendar-single-event-objective-list objectives=courseObjectives noContentPhrase=noContentPhrase}}
-    {{else}}
-      {{fa-icon 'spinner' spin=true}}
-    {{/if}}
+    {{ilios-calendar-single-event-objective-list objectives=courseObjectives noContentPhrase=noContentPhrase}}
   </div>
 </fieldset>

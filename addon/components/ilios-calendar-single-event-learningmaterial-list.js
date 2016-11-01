@@ -5,7 +5,7 @@ const {computed, isEmpty} = Ember;
 
 export default Ember.Component.extend({
   layout: layout,
-  learningMaterials: [],
+  learningMaterials: null,
   requiredPhrase: null,
   sortedLearningMaterials: computed.sort('proxiedLearningMaterials', function(a, b){
     // sort order:
