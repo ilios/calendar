@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   layout: layout,
   date: null,
   calendarEvents: [],
+  showMore: null,
   actions: {
     selectEvent(event){
       this.sendAction('selectEvent', event);
@@ -17,6 +18,6 @@ export default Ember.Component.extend({
     changeToEventsDayView(event){
       this.sendAction('changeDate', event.startDate);
       this.sendAction('changeView', 'day');
-    }
+    },
   }
 });

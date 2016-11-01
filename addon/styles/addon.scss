@@ -41,10 +41,12 @@ $updated-color: #945c58;
   border-top-left-radius: $radii;
 }
 
+
 // scss-lint:disable NestingDepth SelectorDepth
 .ilios-calendar {
 
   .ilios-calendar-month {
+    min-height: 25em;
 
     .el-calendar {
 
@@ -60,9 +62,8 @@ $updated-color: #945c58;
         padding: .25rem;
 
         .events {
-          height: 7rem;
-          overflow-y: auto;
-          padding-bottom: 4rem;
+          height: 4rem;
+          padding-bottom: 2rem;
         }
       }
 
@@ -86,6 +87,13 @@ $updated-color: #945c58;
         .ilios-calendar-event-location {
           display: none;
         }
+      }
+
+      .month-more-events {
+        display: block;
+        font-size: .8em;
+        text-align: right;
+        width: 100%;
       }
     }
   }
