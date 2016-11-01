@@ -2,19 +2,14 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import Ember from 'ember';
 
-const { isEmpty, RSVP } = Ember;
-const { Promise } = RSVP;
+const { isEmpty } = Ember;
 
 moduleForComponent('ilios-calendar-single-event', 'Integration | Component | ilios calendar single event', {
   integration: true,
   beforeEach() {
-    let objectives = new Promise((resolve) => {
-      const array = Ember.A([
-        {domain: 'great things', title: 'cheese'}
-      ]);
-
-      resolve(array);
-    });
+    let objectives = [
+      {domain: 'great things', title: 'cheese'}
+    ];
 
     this.setProperties({ courseObjectives: objectives, sessionObjectives: objectives });
   }

@@ -1,50 +1,39 @@
 import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar-single-event-objective-list';
-import DS from 'ember-data';
 
-const { computed, isEmpty, RSVP } = Ember;
-const { Promise } = RSVP;
-const { PromiseArray } = DS;
+const { Component, computed, isEmpty } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
+  objectives: null,
 
-  domains: computed('objectives.@each.[title,domain]', function(){
-    let promiseDomains = new Promise((resolve) => {
-      this.get('objectives').then((objectives) => {
-        if (isEmpty(objectives)) {
-          resolve([]);
-          return;
-        }
+  domains: computed('objectives.[]', function(){
+    const objectives = this.get('objectives');
+    if (isEmpty(objectives)) {
+      return Ember.A();
+    }
 
-        let domainTitles = objectives.map(obj => {
-          return obj.domain.toString();
-        });
+    let domainTitles = objectives.map(obj => {
+      return obj.domain.toString();
+    });
 
-        domainTitles = Ember.A(domainTitles).uniq();
+    domainTitles = Ember.A(domainTitles).uniq();
 
-        let domains = domainTitles.map(title => {
-          let domain = {
-            title,
-            objectives: []
-          };
-          let filteredObjectives = objectives.filter(obj => {
-            return obj.domain.toString() === title;
-          }).map(obj => {
-            return obj.title;
-          });
-          domain.objectives = Ember.A(filteredObjectives).sortBy('title');
-
-          return domain;
-        });
-
-        resolve(Ember.A(domains).sortBy('title'));
+    let domains = domainTitles.map(title => {
+      let domain = {
+        title,
+        objectives: []
+      };
+      let filteredObjectives = objectives.filter(obj => {
+        return obj.domain.toString() === title;
+      }).map(obj => {
+        return obj.title;
       });
+      domain.objectives = Ember.A(filteredObjectives).sortBy('title');
+
+      return domain;
     });
 
-    // Make it an ennumerable so it can be observed
-    return PromiseArray.create({
-      promise: promiseDomains
-    });
+    return Ember.A(domains).sortBy('title');
   }),
 });
