@@ -46,24 +46,24 @@ $updated-color: #945c58;
 .ilios-calendar {
 
   .ilios-calendar-month {
-    min-height: 25em;
 
     .el-calendar {
+      min-height: (6em * 7);
 
       .week {
+        height: 6em;
         overflow-y: hidden;
-        padding-top: .25rem;
+        padding-top: .25em;
       }
 
       .day {
         border: 1px solid $grey;
-        margin-right: .25rem;
-        overflow-y: hidden;
-        padding: .25rem;
+        margin-right: .25em;
+        padding: .25em;
 
         .events {
-          height: 4rem;
-          padding-bottom: 2rem;
+          height: 4em;
+          padding-bottom: 2em;
         }
       }
 
@@ -500,7 +500,7 @@ $updated-color: #945c58;
         border-left: 4px solid darken(#fff, 15%);
       }
 
-      &.ceremony {
+      &.ceemony {
         background-color: #fff;
         border-left: 4px solid darken(#fff, 15%);
       }
