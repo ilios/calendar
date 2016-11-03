@@ -16,48 +16,47 @@ moduleForComponent('ilios-calendar-multiday-event', 'Integration | Component | i
 });
 
 test('event displays correctly', function(assert) {
+  assert.expect(4);
   let event = getEvent();
   this.set('event', event);
-  assert.expect(4);
+  this.set('nothing', parseInt);
+  this.render(hbs`{{ilios-calendar-multiday-event event=event selectEvent=(action nothing)}}`);
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{ilios-calendar-multiday-event event=event}}`);
-  
   assert.equal(this.$().text().search(/11\/11\/84/), 0);
   assert.equal(this.$().text().search(/11\/12\/84/), 19);
-  assert.equal(this.$().text().search(/Cheramie is born/), 40);
-  assert.equal(this.$().text().search(/Lancaster, CA/), 60);
-  
+  assert.equal(this.$().text().search(/Cheramie is born/), 39);
+  assert.equal(this.$().text().search(/Lancaster, CA/), 57);
+
 });
 
 test('action fires on click', function(assert) {
   let event = getEvent();
   event.offering = 1;
-  
+
   this.set('event', event);
   assert.expect(2);
-  this.render(hbs`{{ilios-calendar-multiday-event event=event action='handleAction'}}`);
-  assert.ok(this.$().text().search(/Cheramie is born/) > 0);
   this.on('handleAction', (value) => {
     assert.deepEqual(event, value);
   });
-  
+  this.render(hbs`{{ilios-calendar-multiday-event event=event selectEvent=(action 'handleAction' event)}}`);
+  assert.ok(this.$().text().search(/Cheramie is born/) > 0);
+
+
   this.$('.clickable').click();
 });
 
 test('action does not fire for scheduled events', function(assert) {
   let event = getEvent();
-  
+
   this.set('event', event);
   assert.expect(1);
-  this.render(hbs`{{ilios-calendar-multiday-event event=event action='handleAction'}}`);
-  assert.ok(this.$().text().search(/Cheramie is born/) > 0);
   this.on('handleAction', () => {
     //this should never get called
     assert.ok(false);
   });
-  
+  this.render(hbs`{{ilios-calendar-multiday-event event=event selectEvent=(action 'handleAction')}}`);
+  assert.ok(this.$().text().search(/Cheramie is born/) > 0);
+
+
   this.$('.clickable').click();
 });

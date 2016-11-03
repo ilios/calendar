@@ -37,16 +37,9 @@ export default Component.extend({
     );
   }),
   actions: {
-    selectEvent(event){
-      this.sendAction('selectEvent', event);
-    },
     changeToDayView(date){
-      this.sendAction('changeDate', date);
-      this.sendAction('changeView', 'day');
-    },
-    changeToEventsDayView(event){
-      this.sendAction('changeDate', event.startDate);
-      this.sendAction('changeView', 'day');
+      this.get('changeDate')(date);
+      this.get('changeView')('day');
     }
   }
 });
