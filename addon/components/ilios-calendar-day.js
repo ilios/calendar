@@ -32,9 +32,4 @@ export default Ember.Component.extend({
       event => !moment(event.startDate).isSame(moment(event.endDate), 'day')
     );
   }),
-  actions: {
-    selectEvent(event){
-      this.sendAction('selectEvent', event);
-    }
-  }
 });

@@ -28,10 +28,15 @@ test('month displays with three events', function(assert) {
   thirdEvent.endDate = date.clone().add(4, 'hour');
 
   this.set('events', [firstEvent, secondEvent, thirdEvent]);
+  this.set('nothing', parseInt);
   const events = '.event';
   const more = '.month-more-events';
 
-  this.render(hbs`{{ilios-calendar-month date=date calendarEvents=events showMore='Show More'}}`);
+  this.render(hbs`{{ilios-calendar-month
+    date=date
+    calendarEvents=events
+    selectEvent=(action nothing)
+    showMore='Show More'}}`);
   //Date input is Wednesday, Septrmber 30th.  Should be the first string
   assert.equal(this.$().text().trim().search(/^September 2015/), 0);
   assert.equal(this.$(events).length, 2);
@@ -44,6 +49,7 @@ test('month displays with two events', function(assert) {
   let date = moment(new Date('2015-09-30T12:00:00'));
 
   this.set('date', date.toDate());
+  this.set('nothing', parseInt);
 
   let firstEvent = createUserEventObject();
   firstEvent.name = 'Some new thing';
@@ -59,7 +65,11 @@ test('month displays with two events', function(assert) {
   const events = '.event';
   const more = '.month-more-events';
 
-  this.render(hbs`{{ilios-calendar-month date=date calendarEvents=events showMore='Show More'}}`);
+  this.render(hbs`{{ilios-calendar-month
+    date=date
+    calendarEvents=events
+    selectEvent=(action nothing)
+    showMore='Show More'}}`);
   //Date input is Wednesday, Septrmber 30th.  Should be the first string
   assert.equal(this.$().text().trim().search(/^September 2015/), 0);
   assert.equal(this.$(events).length, 2);
@@ -71,12 +81,6 @@ test('clicking on a day fires the correct event', function(assert) {
   let date = new Date('2015-09-30T12:00:00');
   this.set('date', date);
 
-  this.render(hbs`{{ilios-calendar-month
-    date=date
-    changeDate='changeDate'
-    changeView='changeView'
-    calendarEvents=events
-  }}`);
   this.on('changeDate', newDate => {
     assert.ok(newDate instanceof Date);
     assert.ok(newDate.toString().search(/Sun Aug 30/) === 0);
@@ -84,6 +88,14 @@ test('clicking on a day fires the correct event', function(assert) {
   this.on('changeView', newView => {
     assert.equal(newView, 'day');
   });
+
+  this.render(hbs`{{ilios-calendar-month
+    date=date
+    changeDate=(action 'changeDate')
+    changeView=(action 'changeView')
+    calendarEvents=events
+  }}`);
+
   this.$('.day .clickable').eq(0).click();
 });
 

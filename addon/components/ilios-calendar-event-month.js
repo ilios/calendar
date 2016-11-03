@@ -35,7 +35,7 @@ export default CalendarEvent.extend(TooltipContent, {
 
   click(){
     if(this.get('clickable')){
-      this.sendAction('action', this.get('event'));
+      this.get('selectEvent')();
     }
   }
 });

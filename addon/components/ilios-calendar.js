@@ -80,33 +80,27 @@ export default Component.extend({
 
   }),
   actions: {
-    changeView(newView){
-      this.sendAction('changeView', newView);
-    },
     changeDate(newDate){
-      this.sendAction('changeDate', newDate);
+      this.get('changeDate')(newDate);
     },
     goForward(){
       let newDate = moment(this.get('selectedDate')).add(1, this.get('selectedView')).toDate();
-      this.sendAction('changeDate', newDate);
+      this.get('changeDate')(newDate);
     },
     goBack(){
       let newDate = moment(this.get('selectedDate')).subtract(1, this.get('selectedView')).toDate();
-      this.sendAction('changeDate', newDate);
+      this.get('changeDate')(newDate);
     },
     gotoToday(){
       let newDate = moment().toDate();
-      this.sendAction('changeDate', newDate);
+      this.get('changeDate')(newDate);
     },
     selectEvent(event){
-      this.sendAction('selectEvent', event);
-    },
-    toggleIcsFeed(){
-      this.set('showIcsFeed', !this.get('showIcsFeed'));
+      this.get('selectEvent')(event);
     },
     refreshIcsFeed(){
       this.set('icsFeedUrl', null);
-      this.sendAction('refreshIcsFeed');
+      this.get('refreshIcsFeed')();
     }
   }
 });
