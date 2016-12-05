@@ -2,22 +2,26 @@
   "name": "ilios-calendar",
   "version": "7.2.0",
   "description": "Provides the ilios calendar to the ilios frontend and embeded app.",
+  "keywords": [
+    "ember-addon"
+  ],
+  "license": "MIT",
+  "author": "",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
+  "repository": "https://github.com/ilios/calendar",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "eslint . && ember try:each"
   },
-  "repository": "https://github.com/ilios/calendar",
-  "engines": {
-    "node": "^6",
-    "npm": "^3.10"
+  "dependencies": {
+    "ember-cli-babel": "^5.1.7",
+    "ember-cli-htmlbars": "^1.1.0",
+    "ember-cli-sass": "^5.5.1"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.6",
     "elemental-calendar": "0.0.9",
@@ -37,7 +41,7 @@
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-composable-helpers": "1.1.2",
-    "ember-data": "^2.9.0",
+    "ember-data": "^2.10.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.5",
@@ -51,13 +55,9 @@
     "eslint": "^3.3.0",
     "loader.js": "^4.0.10"
   },
-  "keywords": [
-    "ember-addon"
-  ],
-  "dependencies": {
-    "ember-cli-babel": "^5.1.7",
-    "ember-cli-htmlbars": "^1.1.0",
-    "ember-cli-sass": "^5.5.1"
+  "engines": {
+    "node": "^6",
+    "npm": "^3.10"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
