@@ -53,7 +53,7 @@
     "ember-tooltips": "2.4.2",
     "ember-truth-helpers": "1.2.0",
     "eslint": "^3.3.0",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.1.0"
   },
   "engines": {
     "node": "^6",
