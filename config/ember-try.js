@@ -1,4 +1,5 @@
-/*jshint node:true*/
+/*eslint-env node*/
+/* global module */
 module.exports = {
   scenarios: [
     {
