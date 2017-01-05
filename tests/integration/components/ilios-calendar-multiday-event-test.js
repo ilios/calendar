@@ -30,17 +30,16 @@ test('event displays correctly', function(assert) {
 });
 
 test('action fires on click', function(assert) {
+  assert.expect(2);
   let event = getEvent();
   event.offering = 1;
 
   this.set('event', event);
-  assert.expect(2);
-  this.on('handleAction', (value) => {
+  this.set('selectEvent', (value) => {
     assert.deepEqual(event, value);
   });
-  this.render(hbs`{{ilios-calendar-multiday-event event=event selectEvent=(action 'handleAction' event)}}`);
+  this.render(hbs`{{ilios-calendar-multiday-event event=event selectEvent=selectEvent}}`);
   assert.ok(this.$().text().search(/Cheramie is born/) > 0);
-
 
   this.$('.clickable').click();
 });
