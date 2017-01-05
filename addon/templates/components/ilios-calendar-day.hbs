@@ -21,7 +21,8 @@
           {{/each}}
         {{/each}}
       </li>
-      {{#each hours as |hour|}}
+      {{! template-lint-disable unused-block-params }}
+      {{#each hours as |empty|}}
         <li class="day-hour">
           <div class="day-half-hour"></div>
         </li>
