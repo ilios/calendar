@@ -7,7 +7,7 @@ module.exports = {
   },
   name: 'ilios-calendar',
   //needed for scss to get pushed up to parent app
-  included: function(app) {
-    this._super.included(app);
+  included: function(/* app */) {
+    this._super.included.apply(this, arguments);
   }
 };
