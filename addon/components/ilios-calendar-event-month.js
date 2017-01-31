@@ -12,7 +12,11 @@ export default CalendarEvent.extend(TooltipContent, {
   layout,
   event: null,
   timeFormat: 'h:mma',
+  taughtByPhrase: 'Taught by',
+  courseTitlePhrase: 'Course',
   multiplePhrase: 'Multiple',
+  etAlPhrase: 'et al.',
+  ilmDuePhrase: 'ILM - Due',
   classNameBindings: [':event', ':event-pos', ':ilios-calendar-event', 'event.eventClass', ':month-event', 'clickable:clickable'],
   style: computed(function() {
     return new SafeString('');
