@@ -24,4 +24,4 @@ Provides the ilios calendar addon to other ember applications including our fron
 
 * `ember build`
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
