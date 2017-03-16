@@ -13,12 +13,17 @@
   <div class='ilios-calendar-single-event-session-is'>{{sessionIsPhrase}}</div>
   {{#if equipmentRequired}}
     <div class='ilios-calendar-single-event-equipment-required'>
-      {{{equipmentRequiredPhrase}}} {{fa-icon 'fa-flask'}}
+      {{{equipmentRequiredPhrase}}} {{fa-icon 'flask'}}
     </div>
   {{/if}}
   {{#if attireRequired}}
     <div class='ilios-calendar-single-event-attire-required'>
-      {{{attireRequiredPhrase}}} {{fa-icon 'fa-black-tie'}}
+      {{{attireRequiredPhrase}}} {{fa-icon 'black-tie'}}
+    </div>
+  {{/if}}
+  {{#if attendanceRequired}}
+    <div class='ilios-calendar-single-event-attendance-required'>
+      {{{attendanceRequiredPhrase}}} {{fa-icon 'calendar-check-o'}}
     </div>
   {{/if}}
   {{#if description}}{{{description}}}<br>{{/if}}
