@@ -30,6 +30,9 @@ export default Component.extend({
   attireRequired: false,
   attireRequiredPhrase: 'Special attire is <strong><em>required</em></strong>',
 
+  attendanceRequired: false,
+  attendanceRequiredPhrase: 'Attendance is <strong><em>required</em></strong>',
+
   equipmentRequired: false,
   equipmentRequiredPhras: 'Special equipment is <strong><em>required</em></strong>',
 
