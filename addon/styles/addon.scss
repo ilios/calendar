@@ -717,6 +717,16 @@ $updated-color: #945c58;
 
 .ilios-calendar-single-event-objective-list {
 
+  button {
+    &.active {
+      background-color: $ilios-green;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
   .list-in-order {
     li {
       padding-bottom: 0.5em;
@@ -726,7 +736,4 @@ $updated-color: #945c58;
     }
   }
 
-  .display-mode-toggle {
-    margin-bottom: 1.0em;
-  }
 }
