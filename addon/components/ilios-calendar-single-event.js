@@ -16,6 +16,8 @@ export default Component.extend({
   taughtByPhrase: null,
   sessionIsPhrase: null,
   noContentPhrase: 'None',
+  listByPriorityPhrase: 'List by Priority',
+  groupByCompetenciesPhrase: 'Group by Competencies',
 
   courseObjectivesPhrase: 'Course Objectives',
   courseLearningMaterialsPhrase: 'Course Learning Materials',

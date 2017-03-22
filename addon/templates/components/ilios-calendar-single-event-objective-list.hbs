@@ -1,16 +1,40 @@
-{{#if domains.length}}
-  <ul class='tree'>
-    {{#each domains as |domain|}}
+{{#if showDisplayModeToggle}}
+  <button class="display-mode-toggle" {{action (mut groupByCompetencies) (not groupByCompetencies)}}>
+    {{#if groupByCompetencies}}
+      {{fa-icon 'list' title=listByPriorityPhrase}} {{listByPriorityPhrase}}
+    {{else}}
+      {{fa-icon 'indent' title=groupByCompetenciesPhrase}} {{groupByCompetenciesPhrase}}
+    {{/if}}
+  </button>
+{{/if}}
+{{#if groupByCompetencies}}
+  {{#if domains.length}}
+    <ul class='tree'>
+      {{#each domains as |domain|}}
+        <li>
+          {{domain.title}}
+          <ul>
+            {{#each domain.objectives as |title|}}
+              <li>{{{title}}}</li>
+            {{/each}}
+          </ul>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <li class="no-content">{{noContentPhrase}}</li>
+  {{/if}}
+{{else}}
+  <ul class='list-in-order'>
+    {{#each (await objectives) as |objective|}}
       <li>
-        {{domain.title}}
-        <ul>
-          {{#each domain.objectives as |title|}}
-            <li>{{{title}}}</li>
-          {{/each}}
-        </ul>
+        {{objective.title}}
+        <span class="details">{{objective.domain}}</span>
       </li>
+    {{else}}
+      <li class="no-content">{{noContentPhrase}}</li>
     {{/each}}
   </ul>
-{{else}}
-  <li class="no-content">{{noContentPhrase}}</li>
 {{/if}}
+
+

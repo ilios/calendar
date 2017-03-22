@@ -42,7 +42,10 @@
     <h2>{{sessionObjectivesPhrase}}</h2>
     {{ilios-calendar-single-event-objective-list
       objectives=sessionObjectives
-      noContentPhrase=noContentPhrase}}
+      noContentPhrase=noContentPhrase
+      groupByCompetenciesPhrase=groupByCompetenciesPhrase
+      listByPriorityPhrase=listByPriorityPhrase
+    }}
   </div>
 </fieldset>
 
@@ -57,6 +60,11 @@
   </div>
   <div class='ilios-calendar-single-event-objective-list'>
     <h2>{{courseObjectivesPhrase}}</h2>
-    {{ilios-calendar-single-event-objective-list objectives=courseObjectives noContentPhrase=noContentPhrase}}
+    {{ilios-calendar-single-event-objective-list
+      objectives=courseObjectives
+      groupByCompetenciesPhrase=groupByCompetenciesPhrase
+      listByPriorityPhrase=listByPriorityPhrase
+      noContentPhrase=noContentPhrase
+    }}
   </div>
 </fieldset>
