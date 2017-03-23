@@ -30,7 +30,7 @@
   {{/if}}
 {{else}}
   <ul class='list-in-order'>
-    {{#each (await objectives) as |objective|}}
+    {{#each objectives as |objective|}}
       <li>
         {{objective.title}}
         <span class="details">{{objective.domain}}</span>
