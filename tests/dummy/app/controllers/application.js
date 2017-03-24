@@ -110,16 +110,16 @@ export default Controller.extend({
         taughtByPhrase: 'Taught By Barry Bods, Neil deGrasse Tyson',
         sessionIs: 'Session is "lecture"',
         courseObjectives: [
-          {domain: 'Medical (With People)', title: 'Help People'},
-          {domain: 'Medical (With Machines)', title: 'Use Computers'},
+          {domain: 'Medical (With People)', title: 'Help People', position: 0},
+          {domain: 'Medical (With Machines)', title: 'Use Computers', position: 1},
         ],
         courseLearningMaterials: [
           {title: 'syllabus', url: 'http://#', type: 'citation'},
         ],
         sessionObjectives: [
-          {domain: 'Medical (With People)', title: 'Help People'},
-          {domain: 'Medical (With Machines)', title: 'Use Computers'},
-          {domain: 'Medical (With Machines)', title: 'Help People'},
+          {domain: 'Medical (With People)', title: 'Help People', position: 0},
+          {domain: 'Medical (With Machines)', title: 'Use Computers', position: 1},
+          {domain: 'Medical (With Machines)', title: 'Help People', position: 2},
         ],
         sessionLearningMaterials: [
           {title: 'slides', url: 'http://#', type: 'citation'},
