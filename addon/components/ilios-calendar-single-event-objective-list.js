@@ -6,6 +6,22 @@ const { Component, computed, isEmpty } = Ember;
 export default Component.extend({
   layout,
   objectives: null,
+  groupByCompetencies: true,
+
+  /**
+   * TRUE if the at least one of the given objectives has its sort priority set, otherwise FALSE.
+   * @property showDisplayModeToggle
+   * @type {Ember.computed}
+   */
+  showDisplayModeToggle: computed('objectives.[]', function(){
+    let objectives = this.get('objectives');
+    if (isEmpty(objectives)) {
+      return false;
+    }
+    return !! objectives.reduce((prevValue, objective) => {
+      return Math.max(prevValue, objective.position);
+    }, 0);
+  }),
 
   domains: computed('objectives.[]', function(){
     const objectives = this.get('objectives');
@@ -35,5 +51,5 @@ export default Component.extend({
     });
 
     return Ember.A(domains).sortBy('title');
-  }),
-});
+  })
+})

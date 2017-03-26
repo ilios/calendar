@@ -714,3 +714,26 @@ $updated-color: #945c58;
 .recently-updated-icon-event {
   color: $updated-color;
 }
+
+.ilios-calendar-single-event-objective-list {
+
+  button {
+    &.active {
+      background-color: $ilios-green;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .list-in-order {
+    li {
+      padding-bottom: 0.5em;
+    }
+    .details {
+      font-size: smaller;
+    }
+  }
+
+}
