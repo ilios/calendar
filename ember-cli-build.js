@@ -1,15 +1,11 @@
 /*eslint-env node*/
 /* global require, module */
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
-var nodeSass = require('node-sass'); // loads the version in your package.json
 
 module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
     'ember-font-awesome': {
       useScss: true,
-    },
-    sassOptions: {
-      nodeSass: nodeSass
     }
   });
 
