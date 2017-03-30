@@ -728,11 +728,16 @@ $updated-color: #945c58;
   }
 
   .list-in-order {
+    list-style-type: disc;
+
     li {
-      padding-bottom: 0.5em;
+      margin-left: 1em;
+      padding-bottom: .5em;
     }
+
     .details {
       font-size: smaller;
+      font-weight: bold;
     }
   }
 
