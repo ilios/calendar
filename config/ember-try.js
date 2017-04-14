@@ -1,5 +1,4 @@
-/*eslint-env node*/
-/* global module */
+/* eslint-env node */
 module.exports = {
   scenarios: [
     {

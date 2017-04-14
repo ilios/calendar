@@ -1,9 +1,8 @@
 import Ember from 'ember';
-import DS from 'ember-data';
 import moment from 'moment';
 
 const { RSVP, Controller, computed, A} = Ember;
-const { PromiseArray } = DS;
+const { resolve } = RSVP;
 
 export default Controller.extend({
   applicationTitlePhrase: 'Demo of ilios-calendar',
@@ -75,10 +74,7 @@ export default Controller.extend({
       events.pushObject(thisEvent);
     }
 
-    let promise = RSVP.resolve(events);
-    return PromiseArray.create({
-      promise: promise
-    });
+    return resolve(events);
   }),
   createUserEventObject(){
     return {
