@@ -2,10 +2,18 @@ import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar';
 import moment from 'moment';
 
-const { A, Component, computed, RSVP, copy } = Ember;
+const { A, Component, computed, RSVP, copy, inject } = Ember;
 const { Promise } = RSVP;
+const { service } = inject;
 
 export default Component.extend({
+  moment: service(),
+  didReceiveAttrs(){
+    this._super(...arguments);
+    const locale = this.get('locale');
+    const moment = this.get('moment');
+    moment.setLocale(locale);
+  },
   layout,
   classNames: ['ilios-calendar'],
   selectedView: null,
@@ -21,6 +29,7 @@ export default Component.extend({
   icsInstructions: 'To add your Ilios calendar to another application or service, use this URL.  This URL is like a password. Anyone who knows it can view your calendar! If you wish to invalidate this URL and generate a new one, press the refresh button.',
   multidayEvents: 'Multiday Events',
   showMore: 'Show more',
+  locale: 'en',
   showIcsFeed: false,
   compiledCalendarEvents: computed('calendarEventsPromise.[]', 'selectedView', function(){
     return new Promise(resolve => {

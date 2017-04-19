@@ -18,7 +18,7 @@
       {{#each week.days as |day|}}
         <div class="day">
           <span class='clickable' {{action 'changeToDayView' day.date}}>
-            {{formatted-date day.date type='monthly-day'}}
+            {{moment-format day.date 'D'}}
           </span>
           <div class="events">
             {{#if (gt day.events.length 2)}}
