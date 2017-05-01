@@ -2,9 +2,17 @@ import Ember from 'ember';
 import layout from '../templates/components/ilios-calendar-single-event';
 import moment from 'moment';
 
-const { Component, computed } = Ember;
+const { Component, computed, inject } = Ember;
+const { service } = inject;
 
 export default Component.extend({
+  moment: service(),
+  didReceiveAttrs(){
+    this._super(...arguments);
+    const locale = this.get('locale');
+    const moment = this.get('moment');
+    moment.setLocale(locale);
+  },
   layout,
   classNames: ['ilios-calendar', 'ilios-calendar-single-event'],
 
@@ -39,6 +47,8 @@ export default Component.extend({
   equipmentRequiredPhras: 'Special equipment is <strong><em>required</em></strong>',
 
   requiredPhrase: 'Required',
+
+  locale: 'en',
 
   daysToShowAlert: null,
 

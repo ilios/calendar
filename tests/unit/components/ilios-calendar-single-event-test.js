@@ -2,7 +2,8 @@ import { moduleForComponent, test } from 'ember-qunit';
 import moment from 'moment';
 
 moduleForComponent('ilios-calendar-single-event', 'Unit | Component | ilios calendar single event', {
-  unit: true
+  unit: true,
+  needs: ['service:moment']
 });
 
 test('`recentlyUpdated` computed property works', function(assert) {
