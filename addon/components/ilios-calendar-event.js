@@ -3,6 +3,7 @@ import { default as CalendarEvent } from 'el-calendar/components/calendar-event'
 import layout from '../templates/components/ilios-calendar-event';
 import moment from 'moment';
 import TooltipContent from '../mixins/tooltip-content';
+import colorChange from '../utils/color-change';
 
 const { computed, Handlebars, isArray } = Ember;
 const { SafeString } = Handlebars;
@@ -18,7 +19,6 @@ export default CalendarEvent.extend(TooltipContent, {
     ':event-pos',
     ':ilios-calendar-event',
     'isDay:day',
-    'event.eventClass',
     'clickable:clickable',
     'isIlm'
   ],
@@ -45,14 +45,17 @@ export default CalendarEvent.extend(TooltipContent, {
   }),
 
   style: computed(function() {
-    if (this.get('event') == null) {
+    const event = this.get('event');
+    if (event == null) {
       return new SafeString('');
     }
-
-    let escape = Handlebars.Utils.escapeExpression;
+    const escape = Handlebars.Utils.escapeExpression;
+    const darkcolor = colorChange(event.color, -0.15);
 
     return new SafeString(
-      `top: ${escape(this.calculateTop())}%;
+      `background-color: ${escape(event.color)};
+       border-left: 4px solid ${escape(darkcolor)};
+       top: ${escape(this.calculateTop())}%;
        height: ${escape(this.calculateHeight())}%;
        left: ${escape(this.calculateLeft())}%;
        width: ${escape(this.calculateWidth())}%;`
