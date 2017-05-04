@@ -8,8 +8,7 @@ Provides the ilios calendar addon to other ember applications including our fron
 
 * `git clone <repository-url>` this repository
 * `cd ilios-calendar`
-* `npm install`
-* `bower install`
+* `yarn install`
 
 ## Running
 
