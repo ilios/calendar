@@ -106,7 +106,7 @@ let createUserEventObject = function(){
     offering: 1,
     startDate: null,
     endDate: null,
-    eventClass: 'peer-teaching',
+    calendarColor: '#32edfc',
     location: 'Rm. 160',
     lastModified: new Date(),
     isPublished: true,
