@@ -32,7 +32,7 @@ export default CalendarEvent.extend(TooltipContent, {
   isOffering: notEmpty('event.offering'),
   clickable: or('isIlm', 'isOffering'),
 
-  formattedInstructors: computed(function() {
+  formattedInstructors: computed('event.instructors.[]', function() {
     let instructors = this.get('event.instructors');
     if (! isArray(instructors) || ! instructors.length) {
       return '';
@@ -44,7 +44,7 @@ export default CalendarEvent.extend(TooltipContent, {
     }
   }),
 
-  style: computed(function() {
+  style: computed('event', function() {
     const event = this.get('event');
     if (event == null) {
       return new SafeString('');
