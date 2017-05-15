@@ -8,14 +8,12 @@
     {{/if}}
 
     {{#unless isMonth}}
-      {{#unless event.isPublished}}
+      {{#if (not event.isPublished)}}
         {{fa-icon 'files-o'}}
-      {{/unless}}
-      {{#if (and event.isScheduled event.isPublished)}}
+      {{else if event.isScheduled}}
         {{fa-icon 'clock-o'}}
       {{/if}}
     {{/unless}}
-
     <span class='ilios-calendar-event-time'>
       {{#if isIlm}}
         <span class='ilios-calendar-event-start'>
