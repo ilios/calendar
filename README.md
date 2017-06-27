@@ -1,6 +1,5 @@
-# Ilios-calendar
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/ilios/calendar.svg)](https://greenkeeper.io/)
+# Ilios-calendar (no longer maintained)
+# See: https://github.com/ilios/common
 
 Provides the ilios calendar addon to other ember applications including our frontend and embeded applications.
 
